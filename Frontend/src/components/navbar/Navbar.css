@@ -1,0 +1,107 @@
+.navbar-header {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-xs);
+}
+
+.navbar-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-lg);
+  color: var(--color-text-heading);
+}
+
+.brand-icon {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-highlight {
+  color: var(--color-primary);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: var(--font-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+  padding: var(--space-1) 0;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--color-primary);
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-bg-surface);
+  min-width: 170px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) 0;
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  color: var(--color-text-main);
+  font-size: var(--font-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}

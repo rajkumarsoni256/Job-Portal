@@ -1,0 +1,119 @@
+.input-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.input-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.input-required {
+  color: var(--color-error);
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-element {
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  height: 40px;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-element::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.input-element:hover:not(:disabled) {
+  border-color: var(--color-border-hover);
+}
+
+.input-element:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.input-element:disabled {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+/* Has Icons */
+.input-has-icon-left .input-element {
+  padding-left: 2.25rem;
+}
+
+.input-has-icon-right .input-element {
+  padding-right: 2.25rem;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input-icon-left {
+  left: 0.75rem;
+}
+
+.input-icon-right {
+  right: 0.75rem;
+}
+
+/* Textarea variant */
+textarea.input-element {
+  height: auto;
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Select variant */
+select.input-element {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Error & Success States */
+.input-error .input-element {
+  border-color: var(--color-error);
+}
+
+.input-error .input-element:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.input-helper-text {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.input-error-text {
+  font-size: var(--font-xs);
+  color: var(--color-error);
+  margin-top: 2px;
+}
