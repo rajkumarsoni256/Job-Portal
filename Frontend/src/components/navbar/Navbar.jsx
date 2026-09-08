@@ -1,63 +1,182 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Briefcase, FileText, LogIn, ChevronDown } from 'lucide-react';
-import { Button } from '../common';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Briefcase, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 /**
- * Navbar Component
+ * Global Navbar Component
+ * Reusable navigation header for JobTrack public pages
  */
 function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+
+  // Automatically close mobile menu when route changes
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
+    setIsMobileMenuOpen(false);
+  }
+
+  // Close mobile menu on screen resize to desktop width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 880) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="navbar-header">
       <div className="navbar-container">
-        {/* Brand Logo */}
-        <Link to="/" className="navbar-brand">
+        {/* Left: JobTrack Logo with Briefcase Icon */}
+        <Link to="/" className="navbar-brand" aria-label="JobTrack Home">
           <div className="brand-icon">
-            <Briefcase size={20} />
+            <Briefcase size={20} strokeWidth={2.2} />
           </div>
-          <span className="brand-text">Job<span className="brand-highlight">Track</span></span>
+          <span className="brand-text">
+            Job<span className="brand-highlight">Track</span>
+          </span>
         </Link>
 
-        {/* Navigation Links */}
-        <nav className="navbar-links">
-          <NavLink to="/" end className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+        {/* Center: Desktop Navigation Links */}
+        <nav className="navbar-nav desktop-only" aria-label="Main Navigation">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
             Home
           </NavLink>
-
-          <NavLink to="/jobs" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-            Find Jobs
+          <NavLink
+            to="/jobs"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
+            Jobs
           </NavLink>
-
-          <NavLink to="/resume-analyzer" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-            <FileText size={16} />
-            <span>Resume Analyzer</span>
+          <NavLink
+            to="/companies"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
+            Companies
           </NavLink>
-
-          <div className="nav-dropdown">
-            <span className="nav-item">
-              Dashboards <ChevronDown size={14} />
-            </span>
-            <div className="dropdown-menu">
-              <Link to="/seeker/dashboard" className="dropdown-item">Job Seeker</Link>
-              <Link to="/recruiter/dashboard" className="dropdown-item">Recruiter</Link>
-              <Link to="/admin/dashboard" className="dropdown-item">Admin Panel</Link>
-            </div>
-          </div>
+          <NavLink
+            to="/resume-analyzer"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
+            Resume Analyzer
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
+            About
+          </NavLink>
         </nav>
 
-        {/* Auth Actions */}
-        <div className="navbar-actions">
-          <Link to="/login">
-            <Button variant="outline" size="sm" iconLeft={<LogIn size={15} />}>
+        {/* Right: Desktop Actions */}
+        <div className="navbar-actions desktop-only">
+          <NavLink
+            to="/employers"
+            className={({ isActive }) => `employer-link ${isActive ? 'active' : ''}`}
+          >
+            For Employers
+          </NavLink>
+          <Link to="/login" className="btn-nav btn-outline">
+            Login
+          </Link>
+          <Link to="/register" className="btn-nav btn-primary">
+            Sign Up
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Menu Button */}
+        <button
+          type="button"
+          className="mobile-toggle-btn"
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Dropdown */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-hidden={!isMobileMenuOpen}>
+        <nav className="mobile-nav-links" aria-label="Mobile Navigation">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/jobs"
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Jobs
+          </NavLink>
+          <NavLink
+            to="/companies"
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Companies
+          </NavLink>
+          <NavLink
+            to="/resume-analyzer"
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Resume Analyzer
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            About
+          </NavLink>
+        </nav>
+
+        <div className="mobile-menu-divider" />
+
+        <div className="mobile-nav-actions">
+          <NavLink
+            to="/employers"
+            className={({ isActive }) => `mobile-employer-link ${isActive ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            For Employers
+          </NavLink>
+          <div className="mobile-btn-group">
+            <Link
+              to="/login"
+              className="btn-nav btn-outline full-width"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Login
-            </Button>
-          </Link>
-          <Link to="/register">
-            <Button variant="primary" size="sm">
-              Register
-            </Button>
-          </Link>
+            </Link>
+            <Link
+              to="/register"
+              className="btn-nav btn-primary full-width"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Sign Up
+            </Link>
+          </div>
         </div>
       </div>
     </header>

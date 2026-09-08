@@ -125,6 +125,21 @@ body {
   flex-direction: column;
 }
 
+/* Accessibility Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* Headings Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-heading);
@@ -152,6 +167,13 @@ a {
 
 a:hover {
   color: var(--color-primary-hover);
+}
+
+/* Table Responsive Container */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Utility Helpers */

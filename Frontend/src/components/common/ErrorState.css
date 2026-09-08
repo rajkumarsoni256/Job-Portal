@@ -1,0 +1,46 @@
+/* ==========================================================================
+   JobTrack Error State Component Styles
+   ========================================================================== */
+
+.error-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-xl, 14px);
+  max-width: 520px;
+  margin: var(--space-6, 1.5rem) auto;
+  gap: var(--space-3, 0.75rem);
+}
+
+.error-state-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #fee2e2;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-state-title {
+  font-size: var(--font-lg, 1.125rem);
+  font-weight: 700;
+  color: #991b1b;
+}
+
+.error-state-message {
+  font-size: var(--font-sm, 0.875rem);
+  color: #7f1d1d;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.error-state-action {
+  margin-top: var(--space-2, 0.5rem);
+}

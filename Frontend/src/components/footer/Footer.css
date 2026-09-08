@@ -1,0 +1,153 @@
+/* ==========================================================================
+   JobTrack Global Footer Component Styles
+   ========================================================================== */
+
+.footer-container {
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding-top: var(--space-12, 3rem);
+  padding-bottom: var(--space-8, 2rem);
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--space-6, 1.5rem);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-10, 2.5rem);
+  margin-bottom: var(--space-10, 2.5rem);
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-lg, 1.25rem);
+  color: var(--color-text-heading, #0f172a);
+}
+
+.footer-brand-icon {
+  background-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+  padding: 0.4rem;
+  border-radius: var(--radius-md, 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-brand-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.footer-brand-highlight {
+  color: var(--color-primary, #2563eb);
+}
+
+.footer-description {
+  color: var(--color-text-muted, #64748b);
+  font-size: var(--font-sm, 0.875rem);
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, 0.75rem);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md, 6px);
+  background-color: var(--color-bg-secondary, #f1f5f9);
+  color: var(--color-text-muted, #64748b);
+  transition: all var(--transition-fast, 150ms);
+}
+
+.social-link:hover {
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+  transform: translateY(-2px);
+}
+
+/* Links Columns */
+.footer-col-title {
+  font-size: var(--font-sm, 0.875rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-heading, #0f172a);
+  margin-bottom: var(--space-4, 1rem);
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 0.5rem);
+}
+
+.footer-links-list a {
+  color: var(--color-text-muted, #64748b);
+  font-size: var(--font-sm, 0.875rem);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms);
+}
+
+.footer-links-list a:hover {
+  color: var(--color-primary, #2563eb);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  padding: var(--space-6, 1.5rem) var(--space-6, 1.5rem) 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: var(--color-text-subtle, #94a3b8);
+  font-size: var(--font-xs, 0.75rem);
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8, 2rem);
+  }
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6, 1.5rem);
+  }
+}

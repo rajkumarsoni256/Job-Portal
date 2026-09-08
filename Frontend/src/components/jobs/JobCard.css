@@ -1,0 +1,184 @@
+/* ==========================================================================
+   JobCard Component Styles
+   ========================================================================== */
+
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 8px);
+  padding: var(--space-5, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  transition: all 0.15s ease;
+  position: relative;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+}
+
+.job-card:hover {
+  border-color: var(--color-primary-border, #bfdbfe);
+  box-shadow: 0 4px 14px 0 rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.job-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4, 1rem);
+}
+
+.job-card-brand-group {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4, 1rem);
+}
+
+.job-card-logo-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md, 6px);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-card-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.job-card-title {
+  font-size: var(--font-base, 1rem);
+  font-weight: 700;
+  color: var(--color-text-heading, #0f172a);
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.job-card-title:hover {
+  color: var(--color-primary, #2563eb);
+}
+
+.job-card-company {
+  font-size: var(--font-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--color-text-main, #1e293b);
+}
+
+.job-card-save-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: var(--radius-md, 6px);
+  color: var(--color-text-muted, #64748b);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-card-save-btn:hover {
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+}
+
+.job-card-save-btn.saved {
+  color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-light, #eff6ff);
+}
+
+/* Metadata badges line */
+.job-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+  font-size: var(--font-xs, 0.75rem);
+  color: var(--color-text-muted, #64748b);
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.job-card-badges-line {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.badge-type {
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.badge-mode {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.badge-exp {
+  background-color: var(--color-bg-secondary, #f1f5f9);
+  color: var(--color-text-body, #334155);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full, 9999px);
+}
+
+/* Skills tags */
+.job-card-skills {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  background-color: var(--color-bg-app, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text-body, #334155);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* Card Bottom Footer */
+.job-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3, 0.75rem);
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  gap: var(--space-3, 0.75rem);
+}
+
+.posted-date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-xs, 0.75rem);
+  color: var(--color-text-subtle, #94a3b8);
+}

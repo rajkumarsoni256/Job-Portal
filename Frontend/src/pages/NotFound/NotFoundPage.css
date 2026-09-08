@@ -1,0 +1,58 @@
+/* ==========================================================================
+   JobTrack 404 Not Found Page Styles
+   ========================================================================== */
+
+.notfound-page-container {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12, 3rem) var(--space-6, 1.5rem);
+  background-color: var(--color-bg-app, #f8fafc);
+  text-align: center;
+}
+
+.notfound-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-xl, 20px);
+  padding: var(--space-10, 2.5rem) var(--space-8, 2rem);
+  max-width: 580px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5, 1.25rem);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+}
+
+.notfound-code-badge {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.notfound-title {
+  font-size: var(--font-2xl, 1.75rem);
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+}
+
+.notfound-desc {
+  font-size: var(--font-md, 0.95rem);
+  color: var(--color-text-muted, #64748b);
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+.notfound-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4, 1rem);
+  flex-wrap: wrap;
+  margin-top: var(--space-3, 0.75rem);
+}

@@ -1,44 +1,96 @@
-import React from 'react';
-import { MapPin, DollarSign, Clock } from 'lucide-react';
-import { Card, Badge, Button } from '../common';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, DollarSign, Clock, Bookmark, ChevronRight } from 'lucide-react';
+import './JobCard.css';
 
 /**
- * JobCard Component
+ * Reusable JobCard Component
+ * Displays job details, badges, skills, save toggle, and details view action
  */
 function JobCard({ job }) {
-  const jobTitle = job?.title || 'Frontend Developer (React)';
-  const company = job?.company || 'TechCorp Solutions';
-  const location = job?.location || 'Remote / New York';
-  const salary = job?.salary || '$90k - $120k';
-  const type = job?.type || 'Full-Time';
-  const jobId = job?.id || '1';
+  const [isSaved, setIsSaved] = useState(false);
+
+  const toggleSave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsSaved((prev) => !prev);
+  };
+
+  const {
+    id = '1',
+    title = 'Software Engineer',
+    company = 'TechCorp',
+    location = 'Remote / New York',
+    workMode = 'Remote',
+    type = 'Full-time',
+    experience = '1-2 years',
+    salary = '$90,000 - $120,000',
+    skills = [],
+    postedDate = 'Recently',
+    companyLogoBg = '#2563eb',
+    companyInitial = 'T',
+  } = job || {};
 
   return (
-    <Card interactive variant="default">
-      <Card.Header
-        title={jobTitle}
-        subtitle={company}
-        action={<Badge variant="primary">{type}</Badge>}
-      />
-      <Card.Body>
-        <div className="flex gap-4 text-muted font-normal" style={{ fontSize: 'var(--font-sm)', marginBottom: 'var(--space-3)' }}>
-          <span className="flex items-center gap-1"><MapPin size={14} /> {location}</span>
-          <span className="flex items-center gap-1"><DollarSign size={14} /> {salary}</span>
+    <div className="job-card">
+      <div className="job-card-top">
+        <div className="job-card-brand-group">
+          <div className="job-card-logo-badge" style={{ backgroundColor: companyLogoBg }}>
+            {companyInitial}
+          </div>
+          <div className="job-card-main-info">
+            <Link to={`/jobs/${id}`} className="job-card-title">
+              {title}
+            </Link>
+            <span className="job-card-company">{company}</span>
+          </div>
         </div>
-        <p style={{ fontSize: 'var(--font-sm)', color: 'var(--color-text-muted)' }}>
-          {job?.description || 'Building next-generation frontend interfaces with modern React, clean CSS, and accessible components.'}
-        </p>
-      </Card.Body>
-      <Card.Footer>
-        <span className="text-subtle flex items-center gap-1" style={{ fontSize: 'var(--font-xs)' }}>
-          <Clock size={13} /> Posted 2 days ago
+
+        <button
+          type="button"
+          className={`job-card-save-btn ${isSaved ? 'saved' : ''}`}
+          onClick={toggleSave}
+          title={isSaved ? 'Saved to bookmarks' : 'Save job'}
+          aria-label={isSaved ? 'Remove bookmark' : 'Save job'}
+        >
+          <Bookmark size={18} fill={isSaved ? 'currentColor' : 'none'} />
+        </button>
+      </div>
+
+      <div className="job-card-meta">
+        <span className="meta-pill">
+          <MapPin size={14} /> {location}
         </span>
-        <Link to={`/jobs/${jobId}`}>
-          <Button variant="outline" size="sm">View Details</Button>
+        <span className="meta-pill">
+          <DollarSign size={14} /> {salary}
+        </span>
+      </div>
+
+      <div className="job-card-badges-line">
+        <span className="badge-type">{type}</span>
+        <span className="badge-mode">{workMode}</span>
+        <span className="badge-exp">{experience}</span>
+      </div>
+
+      {skills && skills.length > 0 && (
+        <div className="job-card-skills">
+          {skills.map((skill) => (
+            <span key={skill} className="skill-tag">
+              {skill}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div className="job-card-footer">
+        <span className="posted-date">
+          <Clock size={13} /> {postedDate}
+        </span>
+        <Link to={`/jobs/${id}`} className="btn-nav btn-outline" style={{ padding: '0.35rem 0.85rem' }}>
+          View Job <ChevronRight size={14} style={{ marginLeft: 2 }} />
         </Link>
-      </Card.Footer>
-    </Card>
+      </div>
+    </div>
   );
 }
 

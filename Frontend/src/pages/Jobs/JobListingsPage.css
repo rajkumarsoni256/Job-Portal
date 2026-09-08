@@ -1,0 +1,263 @@
+/* ==========================================================================
+   JobTrack JobListingsPage Styles
+   ========================================================================== */
+
+.jobs-page {
+  width: 100%;
+  background-color: var(--color-bg-app, #f8fafc);
+  padding-bottom: var(--space-16, 4rem);
+  min-height: 80vh;
+}
+
+/* Header Banner */
+.jobs-page-header {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  padding: var(--space-8, 2rem) 0 var(--space-8, 2rem);
+}
+
+.jobs-header-container {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--space-6, 1.5rem);
+}
+
+.jobs-page-title {
+  font-size: var(--font-3xl, 2.25rem);
+  font-weight: 800;
+  color: var(--color-text-heading, #0f172a);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.jobs-page-desc {
+  font-size: var(--font-md, 1.125rem);
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: var(--space-6, 1.5rem);
+}
+
+/* Page Search Bar */
+.jobs-search-box {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-xl, 12px);
+  padding: 0.5rem;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06);
+}
+
+.jobs-search-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Page Main Body Grid Layout */
+.jobs-body-container {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  padding: var(--space-8, 2rem) var(--space-6, 1.5rem) 0;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-8, 2rem);
+  align-items: start;
+}
+
+/* Main Content Area */
+.jobs-results-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 8px);
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.02);
+}
+
+.results-count {
+  font-size: var(--font-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--color-text-heading, #0f172a);
+}
+
+.results-sort-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+}
+
+.sort-label {
+  font-size: var(--font-xs, 0.75rem);
+  color: var(--color-text-muted, #64748b);
+  font-weight: 500;
+}
+
+.sort-select {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-md, 6px);
+  background-color: var(--color-bg-app, #f8fafc);
+  font-family: inherit;
+  font-size: var(--font-xs, 0.75rem);
+  font-weight: 500;
+  color: var(--color-text-main, #1e293b);
+  outline: none;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  border-color: var(--color-primary-border, #bfdbfe);
+}
+
+/* Mobile Filter Trigger Button */
+.mobile-filter-trigger {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-md, 6px);
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+  border: 1px solid var(--color-primary-border, #bfdbfe);
+  font-size: var(--font-xs, 0.75rem);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Empty State */
+.jobs-empty-state {
+  background-color: #ffffff;
+  border: 1px dashed var(--color-border, #cbd5e1);
+  border-radius: var(--radius-xl, 12px);
+  padding: var(--space-12, 3rem) var(--space-6, 1.5rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3, 0.75rem);
+}
+
+.empty-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+.empty-title {
+  font-size: var(--font-lg, 1.25rem);
+  font-weight: 700;
+  color: var(--color-text-heading, #0f172a);
+}
+
+.empty-desc {
+  font-size: var(--font-sm, 0.875rem);
+  color: var(--color-text-muted, #64748b);
+  max-width: 420px;
+}
+
+/* Mobile Filter Drawer Modal */
+.mobile-filter-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.mobile-filter-modal-overlay.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-filter-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 360px;
+  background-color: #ffffff;
+  z-index: 2001;
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-filter-modal-overlay.open .mobile-filter-drawer {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4, 1rem) var(--space-5, 1.25rem);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.mobile-drawer-title {
+  font-size: var(--font-md, 1.125rem);
+  font-weight: 700;
+  color: var(--color-text-heading, #0f172a);
+}
+
+.mobile-drawer-close {
+  background: transparent;
+  border: none;
+  color: var(--color-text-main, #1e293b);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.mobile-drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4, 1rem);
+}
+
+.mobile-drawer-footer {
+  padding: var(--space-4, 1rem) var(--space-5, 1.25rem);
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  background-color: #ffffff;
+}
+
+/* Breakpoints */
+@media (max-width: 880px) {
+  .jobs-body-container {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-filter-sidebar {
+    display: none;
+  }
+
+  .mobile-filter-trigger {
+    display: inline-flex;
+  }
+
+  .jobs-search-form {
+    grid-template-columns: 1fr;
+  }
+}
