@@ -23,7 +23,7 @@ import { MOCK_JOBS, POPULAR_CATEGORIES, PLATFORM_STATS, CAREER_TIPS } from '../.
 import './HomePage.css';
 
 /**
- * JobTrack Homepage Component
+ * JobDekho Homepage Component
  * Complete professional landing page for job seekers and employers
  */
 function HomePage() {
@@ -152,11 +152,9 @@ function HomePage() {
               <div className="hero-visual-card">
                 <div className="visual-header">
                   <div className="flex items-center gap-2">
-                    <div className="brand-icon" style={{ width: 28, height: 28, borderRadius: 6 }}>
-                      <Briefcase size={16} />
-                    </div>
+                    <img src="/assets/jobdekho-logo.png" alt="JobDekho" style={{ height: 26, objectFit: 'contain' }} />
                     <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0f172a' }}>
-                      JobTrack Matcher
+                      JobDekho Matcher
                     </span>
                   </div>
                   <span className="visual-badge">
@@ -377,7 +375,7 @@ function HomePage() {
           <div className="cta-box">
             <h2 className="cta-heading">Ready to take the next step?</h2>
             <p className="cta-desc">
-              Join thousands of job seekers who found their dream role with JobTrack. Search active openings or analyze your resume today.
+              Join thousands of job seekers who found their dream role with JobDekho. Search active openings or analyze your resume today.
             </p>
             <div className="cta-actions">
               <Link to="/jobs" className="btn-cta-light">

@@ -1,5 +1,5 @@
 /**
- * Comprehensive Mock Dataset for JobTrack Jobs Page & Details Page
+ * Comprehensive Mock Dataset for JobDekho Jobs Page & Details Page
  */
 
 export const JOBS_DATA = [

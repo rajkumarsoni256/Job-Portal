@@ -5,7 +5,7 @@ import './Navbar.css';
 
 /**
  * Global Navbar Component
- * Reusable navigation header for JobTrack public pages
+ * Reusable navigation header for JobDekho public pages
  */
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,14 +37,13 @@ function Navbar() {
   return (
     <header className="navbar-header">
       <div className="navbar-container">
-        {/* Left: JobTrack Logo with Briefcase Icon */}
-        <Link to="/" className="navbar-brand" aria-label="JobTrack Home">
-          <div className="brand-icon">
-            <Briefcase size={20} strokeWidth={2.2} />
-          </div>
-          <span className="brand-text">
-            Job<span className="brand-highlight">Track</span>
-          </span>
+        {/* Left: JobDekho Logo */}
+        <Link to="/" className="navbar-brand" aria-label="JobDekho Home">
+          <img
+            src="/assets/jobdekho-logo.png"
+            alt="JobDekho — Naukri Dekho, Future Banao."
+            className="navbar-logo-img"
+          />
         </Link>
 
         {/* Center: Desktop Navigation Links */}

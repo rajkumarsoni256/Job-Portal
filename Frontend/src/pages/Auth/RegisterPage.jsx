@@ -111,19 +111,18 @@ function RegisterPage() {
         {/* Left Side: Branding Panel */}
         <div className="auth-brand-panel">
           <Link to="/" className="auth-brand-header">
-            <div className="auth-brand-icon">
-              <Briefcase size={20} strokeWidth={2.2} />
-            </div>
-            <span>
-              Job<span style={{ color: '#60a5fa' }}>Track</span>
-            </span>
+            <img
+              src="/assets/jobdekho-logo.png"
+              alt="JobDekho"
+              style={{ height: 48, objectFit: 'contain' }}
+            />
           </Link>
 
           <div className="auth-brand-content">
             <div className="auth-brand-eyebrow">Create Account</div>
-            <h1 className="auth-brand-title">Join JobTrack today.</h1>
+            <h1 className="auth-brand-title">Join JobDekho today.</h1>
             <p className="auth-brand-desc">
-              Whether you're looking for your next career breakthrough or hiring top tech talent, JobTrack gives you the tools to succeed.
+              Whether you're looking for your next career breakthrough or hiring top tech talent, JobDekho gives you the tools to succeed.
             </p>
 
             <ul className="auth-features-list">
@@ -149,7 +148,7 @@ function RegisterPage() {
           </div>
 
           <div className="auth-brand-footer">
-            © {new Date().getFullYear()} JobTrack Inc. All rights reserved.
+            © {new Date().getFullYear()} JobDekho Inc. All rights reserved.
           </div>
         </div>
 

@@ -262,7 +262,7 @@ function ApplicantsPage() {
                   AI Resume Analysis Active
                 </div>
                 <div className="ai-banner-desc">
-                  JobTrack AI automatically scores candidate resumes, identifies skill match ratios, and highlights top talent.
+                  JobDekho AI automatically scores candidate resumes, identifies skill match ratios, and highlights top talent.
                 </div>
               </div>
             </div>

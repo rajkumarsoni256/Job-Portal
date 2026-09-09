@@ -5,7 +5,7 @@ import './Footer.css';
 
 /**
  * Global Footer Component
- * Professional footer for JobTrack public pages
+ * Professional footer for JobDekho public pages
  */
 function Footer() {
   return (
@@ -13,13 +13,12 @@ function Footer() {
       <div className="footer-content">
         {/* Brand & Description */}
         <div className="footer-brand-col">
-          <Link to="/" className="footer-brand" aria-label="JobTrack Home">
-            <div className="footer-brand-icon">
-              <Briefcase size={20} strokeWidth={2.2} />
-            </div>
-            <span className="footer-brand-text">
-              Job<span className="footer-brand-highlight">Track</span>
-            </span>
+          <Link to="/" className="footer-brand" aria-label="JobDekho Home">
+            <img
+              src="/assets/jobdekho-logo.png"
+              alt="JobDekho — Naukri Dekho, Future Banao."
+              className="footer-logo-img"
+            />
           </Link>
           <p className="footer-description">
             Connecting ambitious job seekers with top-tier companies. Smart job discovery and AI-powered resume insights.
@@ -43,7 +42,7 @@ function Footer() {
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
               </svg>
             </a>
-            <a href="mailto:contact@jobtrack.com" aria-label="Email" className="social-link">
+            <a href="mailto:contact@jobdekho.com" aria-label="Email" className="social-link">
               <Mail size={18} />
             </a>
           </div>
@@ -86,7 +85,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <p className="footer-copyright">
-          © {new Date().getFullYear()} JobTrack. All rights reserved. Professional Career & Job Portal.
+          © {new Date().getFullYear()} JobDekho. All rights reserved. Naukri Dekho, Future Banao.
         </p>
       </div>
     </footer>

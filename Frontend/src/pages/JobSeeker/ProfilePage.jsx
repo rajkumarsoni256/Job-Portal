@@ -1136,7 +1136,7 @@ function ProfilePage() {
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="e.g. JobTrack Portal"
+                  placeholder="e.g. JobDekho Portal"
                   value={projForm.name}
                   onChange={(e) => setProjForm({ ...projForm, name: e.target.value })}
                   required

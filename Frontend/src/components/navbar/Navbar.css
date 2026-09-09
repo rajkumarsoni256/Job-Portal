@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JobTrack Global Navbar Component Styles
+   JobDekho Global Navbar Component Styles
    ========================================================================== */
 
 .navbar-header {
@@ -15,7 +15,7 @@
   max-width: var(--container-xl, 1280px);
   margin: 0 auto;
   padding: 0 var(--space-6, 1.5rem);
-  height: 68px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,6 +36,14 @@
 
 .navbar-brand:hover {
   opacity: 0.9;
+}
+
+.navbar-logo-img {
+  height: 80px;
+  width: auto;
+  max-width: 420px;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-icon {
@@ -74,7 +82,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 68px;
+  height: 96px;
   padding: 0 0.25rem;
   text-decoration: none;
   color: var(--color-text-muted, #64748b);
@@ -285,6 +293,11 @@
 
 /* Responsive Breakpoint */
 @media (max-width: 880px) {
+  .navbar-logo-img {
+    height: 60px;
+    max-width: 300px;
+  }
+
   .desktop-only {
     display: none !important;
   }
@@ -299,4 +312,3 @@
     display: flex;
   }
 }
-

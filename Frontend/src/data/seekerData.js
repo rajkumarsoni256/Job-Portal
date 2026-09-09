@@ -80,11 +80,11 @@ export const SEEKER_PROFILE = {
   projects: [
     {
       id: 'proj-1',
-      name: 'JobTrack AI Career Portal',
+      name: 'JobDekho AI Career Portal',
       tech: 'React, TypeScript, Node.js, Vite',
       description:
         'Built end-to-end job application tracking system with AI resume match breakdown and recruiter candidate management suite.',
-      link: 'https://github.com/rajkumar/jobtrack',
+      link: 'https://github.com/rajkumar/jobdekho',
     },
     {
       id: 'proj-2',

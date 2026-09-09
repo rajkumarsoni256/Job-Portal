@@ -1,5 +1,5 @@
 /**
- * Mock Data for JobTrack Platform
+ * Mock Data for JobDekho Platform
  * Realistic job listings, categories, stats, and career tips
  */
 

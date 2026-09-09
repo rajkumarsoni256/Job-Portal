@@ -33,10 +33,10 @@ function AboutPage() {
             Empowering Careers with AI
           </div>
           <h1 className="about-hero-title">
-            About JobTrack — Modern Job Discovery & AI Resume Analysis
+            About JobDekho — Modern Job Discovery & AI Resume Analysis
           </h1>
           <p className="about-hero-desc">
-            JobTrack is the intelligent career portal connecting talented professionals with top hiring teams through instant AI resume scoring, skill gap insights, and streamlined application tracking.
+            JobDekho is the intelligent career portal connecting talented professionals with top hiring teams through instant AI resume scoring, skill gap insights, and streamlined application tracking.
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ function AboutPage() {
         <section className="about-card-section">
           <div className="about-section-head">
             <TrendingUp size={24} color="var(--color-primary)" />
-            <h2 className="about-section-title">How JobTrack Works</h2>
+            <h2 className="about-section-title">How JobDekho Works</h2>
           </div>
 
           <div className="steps-flow-grid">
@@ -121,7 +121,7 @@ function AboutPage() {
           </div>
 
           <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.6 }}>
-            JobTrack AI Resume Analyzer parses your uploaded document against thousands of target job descriptions. Our algorithm evaluates four core pillars:
+            JobDekho AI Resume Analyzer parses your uploaded document against thousands of target job descriptions. Our algorithm evaluates four core pillars:
           </p>
 
           <div

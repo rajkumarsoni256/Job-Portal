@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JobTrack Global Footer Component Styles
+   JobDekho Global Footer Component Styles
    ========================================================================== */
 
 .footer-container {
@@ -34,6 +34,14 @@
   font-weight: 700;
   font-size: var(--font-lg, 1.25rem);
   color: var(--color-text-heading, #0f172a);
+}
+
+.footer-logo-img {
+  height: 90px;
+  width: auto;
+  max-width: 420px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand-icon {

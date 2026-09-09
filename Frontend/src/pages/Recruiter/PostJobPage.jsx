@@ -207,7 +207,7 @@ function PostJobPage() {
 
   // Save Draft Action
   const handleSaveDraft = () => {
-    localStorage.setItem('jobtrack_draft_job', JSON.stringify(formData));
+    localStorage.setItem('jobdekho_draft_job', JSON.stringify(formData));
     showToast('Draft job saved successfully to your browser session!');
   };
 
@@ -264,9 +264,9 @@ function PostJobPage() {
     };
 
     // Save to localStorage
-    const existingJobs = JSON.parse(localStorage.getItem('jobtrack_custom_jobs') || '[]');
+    const existingJobs = JSON.parse(localStorage.getItem('jobdekho_custom_jobs') || localStorage.getItem('jobtrack_custom_jobs') || '[]');
     existingJobs.unshift(newJobObj);
-    localStorage.setItem('jobtrack_custom_jobs', JSON.stringify(existingJobs));
+    localStorage.setItem('jobdekho_custom_jobs', JSON.stringify(existingJobs));
 
     // Prepend to memory dataset for instant discovery
     JOBS_DATA.unshift(newJobObj);
@@ -356,7 +356,7 @@ function PostJobPage() {
                 Job Published Successfully! 🎉
               </h2>
               <p style={{ fontSize: 'var(--font-sm)', color: 'var(--color-text-body)', maxWidth: 520 }}>
-                Your job posting <strong>{formData.title}</strong> is now live on JobTrack. Candidates can discover, search, and submit applications immediately.
+                Your job posting <strong>{formData.title}</strong> is now live on JobDekho. Candidates can discover, search, and submit applications immediately.
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-3" style={{ marginTop: 'var(--space-4)' }}>
