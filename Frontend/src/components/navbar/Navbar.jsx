@@ -10,7 +10,6 @@ import './Navbar.css';
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
   const [prevPathname, setPrevPathname] = useState(location.pathname);
 
   // Automatically close mobile menu when route changes
@@ -29,7 +28,6 @@ function Navbar() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };

@@ -1,16 +1,29 @@
 /* ==========================================================================
    JobDekho Auth Pages Styles (Login & Register)
-   Clean 2-column split-screen layout with form validation feedback
+   3-Role Split Screen Layout with Role Cards & Validation Feedback
    ========================================================================== */
 
 .auth-page {
-  min-height: calc(100vh - 68px - 200px);
+  min-height: 100vh;
   width: 100%;
   background-color: var(--color-bg-app, #f8fafc);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-10, 2.5rem) var(--space-6, 1.5rem);
+  padding: var(--space-8, 2rem) var(--space-4, 1rem);
+}
+
+.auth-logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: var(--space-3, 0.75rem);
+}
+
+.auth-logo-img {
+  height: 42px;
+  object-fit: contain;
 }
 
 .auth-container {
@@ -44,16 +57,6 @@
   font-weight: 700;
   font-size: var(--font-lg, 1.25rem);
   color: #ffffff;
-}
-
-.auth-brand-icon {
-  background-color: var(--color-primary, #2563eb);
-  color: #ffffff;
-  padding: 0.4rem;
-  border-radius: var(--radius-md, 6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .auth-brand-content {
@@ -127,11 +130,11 @@
 }
 
 .auth-form-header {
-  margin-bottom: var(--space-6, 1.5rem);
+  margin-bottom: var(--space-5, 1.25rem);
 }
 
 .auth-form-title {
-  font-size: var(--font-2xl, 1.75rem);
+  font-size: var(--font-xl, 1.5rem);
   font-weight: 800;
   color: var(--color-text-heading, #0f172a);
   margin-bottom: 0.25rem;
@@ -142,13 +145,169 @@
   color: var(--color-text-muted, #64748b);
 }
 
+/* 3-ROLE SELECTION CARDS UI */
+.role-selection-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.role-select-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-md, 10px);
+  background-color: var(--color-bg-app, #f8fafc);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.role-select-card:hover {
+  border-color: var(--color-primary-border, #93c5fd);
+  background-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.role-select-card.selected {
+  border-color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-light, #eff6ff);
+  box-shadow: 0 4px 14px -3px rgba(37, 99, 235, 0.15);
+}
+
+.role-card-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-primary, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.role-select-card.selected .role-card-icon-wrapper {
+  background-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+  border-color: var(--color-primary, #2563eb);
+}
+
+.role-card-content {
+  flex: 1;
+}
+
+.role-card-title {
+  font-size: var(--font-sm, 0.95rem);
+  font-weight: 700;
+  color: var(--color-text-heading, #0f172a);
+}
+
+.role-card-subtitle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary, #2563eb);
+  margin-bottom: 0.2rem;
+}
+
+.role-card-desc {
+  font-size: 0.76rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.35;
+}
+
+.role-selected-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* CHANGE ROLE BUTTON */
+.btn-back-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--color-primary, #2563eb);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-back-role:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* DEMO PILLS ROW */
+.demo-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.demo-pills-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted, #64748b);
+}
+
+.demo-pill-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border, #cbd5e1);
+  background-color: #ffffff;
+  color: var(--color-text-main, #334155);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.demo-pill-btn:hover,
+.demo-pill-btn.active {
+  border-color: var(--color-primary, #2563eb);
+  background-color: var(--color-primary-light, #eff6ff);
+  color: var(--color-primary, #2563eb);
+}
+
+/* GENERAL ROLE VALIDATION ERROR ALERT */
+.auth-general-error-banner {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Form Inputs */
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-4, 1rem);
 }
 
-/* Form Input Groups */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -205,7 +364,7 @@
   margin-top: 0.15rem;
 }
 
-/* Options Row (Remember me & Forgot Password) */
+/* Options Row */
 .form-options-row {
   display: flex;
   align-items: center;
@@ -238,7 +397,7 @@
   text-decoration: underline;
 }
 
-/* Account Type Radio Selector Cards */
+/* Account Type Selector for Register */
 .account-type-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

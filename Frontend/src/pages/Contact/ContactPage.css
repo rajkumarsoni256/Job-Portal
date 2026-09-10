@@ -1,0 +1,331 @@
+/* ==========================================================================
+   Contact Page Styles — JobDekho Design Language
+   Extends index.css design tokens
+   ========================================================================== */
+
+.contact-page-wrapper {
+  min-height: 100vh;
+  background-color: var(--color-bg-app);
+}
+
+/* Hero Section */
+.contact-hero-section {
+  padding: var(--space-16) 0 var(--space-12);
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.contact-hero-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+.contact-hero-subtitle {
+  font-size: var(--font-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Contact Options Cards Grid */
+.contact-options-section {
+  padding: var(--space-12) 0;
+  margin-top: calc(-1 * var(--space-8));
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.option-card {
+  height: 100%;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.option-card:hover,
+.active-opt-card {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.opt-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+
+.opt-title {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 4px;
+}
+
+.opt-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Main Split Grid Section */
+.contact-main-section {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Form Styling */
+.form-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.submit-success-alert {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-sm);
+  animation: fadeIn 300ms ease;
+}
+
+.submit-success-alert p {
+  color: var(--color-success);
+  font-size: var(--font-xs);
+  margin-top: 2px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.user-type-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.radio-pill {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.radio-pill input {
+  accent-color: var(--color-primary);
+}
+
+.radio-pill.selected {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-border);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.custom-textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-text-main);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+
+.custom-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* Sidebar Info Column */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.info-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 2px;
+}
+
+.info-card-sub {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.info-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.info-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-label {
+  display: block;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.info-val-link {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.info-val-text {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+/* FAQ Shortcut Card */
+.faq-shortcut-card {
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, #f1f5f9 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+.faq-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.faq-card-title {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 2px;
+}
+
+.faq-card-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .user-type-selector {
+    flex-direction: column;
+  }
+}

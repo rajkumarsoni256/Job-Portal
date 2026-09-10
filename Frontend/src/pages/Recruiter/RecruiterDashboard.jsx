@@ -77,7 +77,7 @@ function RecruiterDashboard() {
               </p>
             </div>
 
-            <Link to="/recruiter/post-job" className="btn-post-job-prominent">
+            <Link to="/recruiter/jobs/new" className="btn-post-job-prominent">
               <PlusCircle size={18} />
               <span>Post New Job</span>
             </Link>
@@ -145,7 +145,7 @@ function RecruiterDashboard() {
                 <p className="section-subtitle">Monitor view counts and application volumes</p>
               </div>
 
-              <Link to="/recruiter/post-job" className="btn-nav btn-primary" style={{ fontSize: 'var(--font-xs)', padding: '0.35rem 0.85rem' }}>
+              <Link to="/recruiter/jobs/new" className="btn-nav btn-primary" style={{ fontSize: 'var(--font-xs)', padding: '0.35rem 0.85rem' }}>
                 <PlusCircle size={14} style={{ marginRight: 4 }} /> Post New Job
               </Link>
             </div>

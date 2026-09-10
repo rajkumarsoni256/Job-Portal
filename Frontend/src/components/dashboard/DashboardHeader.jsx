@@ -13,16 +13,27 @@ function DashboardHeader({
   isMobileSidebarOpen = false,
   onToggleMobileSidebar,
 }) {
+  const handleToggle = () => {
+    if (window.innerWidth > 900) {
+      const isCurrentlyCollapsed = localStorage.getItem('jobdekho_sidebar_collapsed') === 'true';
+      localStorage.setItem('jobdekho_sidebar_collapsed', isCurrentlyCollapsed ? 'false' : 'true');
+      window.dispatchEvent(new Event('sidebar-toggle'));
+    } else if (onToggleMobileSidebar) {
+      onToggleMobileSidebar();
+    }
+  };
+
   return (
     <header className="dashboard-header-bar">
       <div className="dashboard-header-left">
         <button
           type="button"
           className="dashboard-menu-toggle"
-          onClick={onToggleMobileSidebar}
+          onClick={handleToggle}
           aria-label="Toggle navigation sidebar"
+          title="Toggle Navigation Sidebar"
         >
-          {isMobileSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+          <Menu size={20} />
         </button>
 
         <h1 style={{ fontSize: 'var(--font-lg)', fontWeight: 700, color: 'var(--color-text-heading)' }}>

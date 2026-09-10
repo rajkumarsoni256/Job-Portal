@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Employer Resources Page Styles — Module 22
+   Extends JobDekho design tokens
+   ========================================================================== */
+
+.resources-page-wrapper {
+  min-height: 100vh;
+  background-color: var(--color-bg-app);
+}
+
+/* Hero Section */
+.resources-hero-section {
+  padding: var(--space-16) 0 var(--space-12);
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resources-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.resources-hero-title {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+.resources-hero-subtitle {
+  font-size: var(--font-lg);
+  color: var(--color-text-muted);
+}
+
+/* Resources Grid */
+.resources-grid-section {
+  padding: var(--space-16) 0;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.resource-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.guide-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.resource-card-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2);
+}
+
+.resource-card-desc {
+  font-size: var(--font-base);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Guide Modal Overlay */
+.guide-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeIn 200ms ease;
+}
+
+.guide-modal-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  animation: slideUp 200ms ease;
+}
+
+.guide-modal-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.modal-sub {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast);
+}
+
+.close-btn:hover {
+  color: var(--color-text-heading);
+  background: var(--color-bg-secondary);
+}
+
+.guide-modal-body {
+  padding: var(--space-6);
+}
+
+.modal-intro {
+  font-size: var(--font-base);
+  color: var(--color-text-body);
+  margin-bottom: var(--space-6);
+}
+
+.tips-heading {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-3);
+}
+
+.guide-tips-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.guide-tips-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-sm);
+  color: var(--color-text-body);
+  line-height: 1.5;
+}
+
+.guide-modal-footer {
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Final CTA Section */
+.resources-cta-section {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.resources-cta-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.resources-cta-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-1);
+}
+
+.resources-cta-sub {
+  font-size: var(--font-base);
+  color: var(--color-text-muted);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resources-cta-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-left {
+    flex-direction: column;
+  }
+
+  .cta-right, .cta-right button {
+    width: 100%;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}

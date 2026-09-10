@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Recruiter Analytics Page Styles — JobDekho Dashboard System
+   Extends index.css design tokens
+   ========================================================================== */
+
+.analytics-container {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Toolbar Filters Bar */
+.analytics-toolbar-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.toolbar-title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-base);
+  color: var(--color-text-heading);
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.control-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.control-box label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.control-select {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-family);
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--color-text-main);
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  cursor: pointer;
+}
+
+/* 5 Metrics Grid */
+.analytics-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+/* Charts Grid */
+.charts-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.chart-card {
+  height: 100%;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-base);
+  font-weight: 700;
+}
+
+/* Chart 1: Bar Chart */
+.bar-chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  padding-top: var(--space-4);
+  gap: var(--space-3);
+}
+
+.bar-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.bar-val-label {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.bar-fill-track {
+  width: 100%;
+  max-width: 48px;
+  flex: 1;
+  background: var(--color-bg-app);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, var(--color-primary) 0%, #3b82f6 100%);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  transition: height 500ms ease;
+}
+
+.bar-xaxis-label {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  font-weight: 500;
+}
+
+/* Chart 2: Job Distribution */
+.job-distribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.dist-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+
+.dist-job-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+.dist-count {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.dist-progress-track {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-app);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.dist-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Chart 3: Status Distribution */
+.status-dist-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: var(--space-2);
+}
+
+.status-bars-stack {
+  height: 20px;
+  width: 100%;
+  border-radius: var(--radius-full);
+  display: flex;
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.stack-segment {
+  height: 100%;
+  transition: width 300ms ease;
+}
+
+.status-legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-xs);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.legend-name {
+  color: var(--color-text-muted);
+}
+
+.legend-val {
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+/* Chart 4: Hiring Funnel */
+.funnel-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.funnel-stage-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.funnel-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-xs);
+}
+
+.stage-name {
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+.stage-count {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.funnel-bar-track {
+  width: 100%;
+  height: 14px;
+  background: var(--color-bg-app);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.funnel-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 500ms ease;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .charts-grid-2x2 {
+    grid-template-columns: 1fr;
+  }
+}

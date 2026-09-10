@@ -22,13 +22,21 @@
 }
 
 .dashboard-menu-toggle {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-md, 6px);
   padding: 0.4rem;
   color: var(--color-text-main, #1e293b);
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard-menu-toggle:hover {
+  background-color: var(--color-bg-secondary, #f1f5f9);
+  color: var(--color-primary, #2563eb);
 }
 
 .dashboard-header-right {

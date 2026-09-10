@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -27,14 +27,27 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role }) {
   const location = useLocation();
   const authContext = useContext(AuthContext);
 
-  const isAdmin = role === 'admin' || location.pathname.startsWith('/admin');
-  const isRecruiter = role === 'recruiter' || location.pathname.startsWith('/recruiter');
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    return localStorage.getItem('jobdekho_sidebar_collapsed') === 'true';
+  });
+
+  useEffect(() => {
+    const handleToggle = () => {
+      setIsCollapsed(localStorage.getItem('jobdekho_sidebar_collapsed') === 'true');
+    };
+    window.addEventListener('sidebar-toggle', handleToggle);
+    return () => window.removeEventListener('sidebar-toggle', handleToggle);
+  }, []);
+
+  const currentRole = (role || authContext?.user?.role || '').toUpperCase();
+  const isAdmin = currentRole === 'ADMIN' || location.pathname.startsWith('/admin');
+  const isRecruiter = currentRole === 'JOB_RECRUITER' || currentRole === 'RECRUITER' || location.pathname.startsWith('/recruiter');
 
   const handleLogout = () => {
     if (authContext && authContext.logout) {
       authContext.logout();
     }
-    navigate('/login');
+    navigate('/login', { replace: true });
   };
 
   const seekerNavItems = [
@@ -51,7 +64,7 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role }) {
   const recruiterNavItems = [
     { label: 'Dashboard', path: '/recruiter/dashboard', icon: <LayoutDashboard size={18} /> },
     { label: 'My Company', path: '/recruiter/company', icon: <Building2 size={18} /> },
-    { label: 'Post a Job', path: '/recruiter/post-job', icon: <PlusCircle size={18} /> },
+    { label: 'Post a Job', path: '/recruiter/jobs/new', icon: <PlusCircle size={18} /> },
     { label: 'Manage Jobs', path: '/recruiter/jobs', icon: <Briefcase size={18} /> },
     { label: 'Applicants', path: '/recruiter/applicants', icon: <Users size={18} /> },
     { label: 'Analytics', path: '/recruiter/analytics', icon: <BarChart3 size={18} /> },
@@ -71,7 +84,7 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role }) {
   const navItems = isAdmin ? adminNavItems : isRecruiter ? recruiterNavItems : seekerNavItems;
 
   return (
-    <aside className={`dashboard-sidebar ${isMobileOpen ? 'mobile-open' : ''}`}>
+    <aside className={`dashboard-sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-nav-group">
         <div className="sidebar-group-label">
           {isAdmin ? 'Admin Console' : isRecruiter ? 'Recruiter Suite' : 'Navigation'}
@@ -84,6 +97,7 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role }) {
               `sidebar-nav-item ${isActive ? 'active' : ''}`
             }
             onClick={onCloseMobile}
+            title={item.label}
           >
             {item.icon}
             <span>{item.label}</span>
@@ -96,6 +110,7 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role }) {
           type="button"
           className="sidebar-nav-item sidebar-logout-btn"
           onClick={handleLogout}
+          title="Logout"
         >
           <LogOut size={18} />
           <span>Logout</span>

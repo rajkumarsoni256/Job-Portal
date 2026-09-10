@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Recruiter Manage Jobs Page Styles — JobDekho Dashboard System
+   Extends index.css design tokens
+   ========================================================================== */
+
+.manage-jobs-container {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.jobs-notice-banner {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fadeIn 300ms ease;
+}
+
+/* Header Summary Cards Row */
+.jobs-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.summary-cards-row {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.summary-stat-chip {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-xs);
+}
+
+.chip-label {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.chip-value {
+  font-size: var(--font-base);
+  font-weight: 800;
+  color: var(--color-text-heading);
+}
+
+/* Table Card */
+.table-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table-card-header {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+.filter-pills {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.filter-pill {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  color: var(--color-text-heading);
+}
+
+.filter-pill.active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+
+/* Table Styling */
+.manage-jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.manage-jobs-table th {
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-app);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.manage-jobs-table td {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-sm);
+  vertical-align: middle;
+}
+
+.job-name-link {
+  font-weight: 700;
+  color: var(--color-text-heading);
+  transition: color var(--transition-fast);
+}
+
+.job-name-link:hover {
+  color: var(--color-primary);
+}
+
+.table-meta-text {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.applicant-count-link {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.actions-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.no-jobs-row {
+  padding: var(--space-8) !important;
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .jobs-summary-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

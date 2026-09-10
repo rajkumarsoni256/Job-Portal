@@ -1,0 +1,654 @@
+/* ==========================================================================
+   Employers Landing Page Styles — Module 20
+   Matches JobDekho core design system tokens & aesthetics
+   ========================================================================== */
+
+.employers-page-wrapper {
+  min-height: 100vh;
+  background-color: var(--color-bg-app);
+}
+
+.text-center-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.text-center-header .section-header-content {
+  align-items: center;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.employers-hero-section {
+  padding: var(--space-16) 0 var(--space-12);
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.employers-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+}
+
+.hero-pill-icon {
+  color: var(--color-primary);
+}
+
+.employers-hero-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-4);
+}
+
+.employers-hero-title .highlight-text {
+  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.employers-hero-subtitle {
+  font-size: var(--font-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: var(--space-8);
+}
+
+.employers-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+
+.hero-trust-metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-num {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.metric-label {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 28px;
+  background-color: var(--color-border-strong);
+  opacity: 0.3;
+}
+
+/* Hero Visual Card */
+.employers-hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-visual-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: relative;
+}
+
+.visual-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.company-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.company-logo-ph {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-company-name {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.visual-company-sub {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.visual-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  background: var(--color-bg-app);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+}
+
+.visual-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.visual-stat-title {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.visual-stat-val {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.visual-applicant-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.preview-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.applicant-mini-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-primary-border);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+}
+
+.avatar-ph {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.applicant-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.applicant-name {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.applicant-role {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.visual-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  padding-top: var(--space-2);
+  border-top: 1px dashed var(--color-border);
+}
+
+/* ==========================================================================
+   Features Section (Why JobDekho)
+   ========================================================================== */
+.employers-features-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-bg-app);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.feature-card {
+  height: 100%;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.feature-card-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2);
+}
+
+.feature-card-desc {
+  font-size: var(--font-base);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   How It Works Section
+   ========================================================================== */
+.employers-steps-section {
+  padding: var(--space-16) 0;
+  background: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  position: relative;
+}
+
+.step-card {
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: border-color var(--transition-fast);
+}
+
+.step-card:hover {
+  border-color: var(--color-primary-border);
+}
+
+.step-number-badge {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.step-icon-circle {
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-3);
+}
+
+.step-card-title {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2);
+}
+
+.step-card-desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Benefits Section
+   ========================================================================== */
+.employers-benefits-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-bg-app);
+}
+
+.benefits-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.benefits-badge {
+  margin-bottom: var(--space-3);
+}
+
+.benefits-section-title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-3);
+}
+
+.benefits-section-desc {
+  font-size: var(--font-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.benefit-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.benefit-item-title {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-heading);
+  margin-bottom: 2px;
+}
+
+.benefit-item-desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Highlight Card */
+.benefits-highlight-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.highlight-icon {
+  color: var(--color-primary);
+}
+
+.highlight-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.highlight-sub {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.highlight-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.highlight-box {
+  background: var(--color-bg-secondary);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-val {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.box-lbl {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.highlight-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--font-sm);
+  color: var(--color-text-body);
+}
+
+.highlight-checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ==========================================================================
+   Call To Action (CTA) Section
+   ========================================================================== */
+.employers-cta-section {
+  padding: var(--space-16) 0;
+}
+
+.cta-banner-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-10);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-title {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: var(--space-2);
+}
+
+.cta-subtitle {
+  font-size: var(--font-base);
+  color: var(--color-text-subtle);
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.btn-cta-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.btn-cta-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: #ffffff !important;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+  .employers-hero-grid,
+  .benefits-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .employers-hero-content {
+    text-align: center;
+  }
+
+  .employers-hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .employers-hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust-metrics {
+    justify-content: center;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-banner-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-8);
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions button {
+    width: 100%;
+  }
+}
+
+/* Mobile (<= 576px) */
+@media (max-width: 576px) {
+  .employers-hero-section,
+  .employers-features-section,
+  .employers-steps-section,
+  .employers-benefits-section,
+  .employers-cta-section {
+    padding: var(--space-10) 0;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-trust-metrics {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .metric-divider {
+    display: none;
+  }
+
+  .employers-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .employers-hero-actions button {
+    width: 100%;
+  }
+}

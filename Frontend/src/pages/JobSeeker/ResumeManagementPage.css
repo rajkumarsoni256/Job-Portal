@@ -1,0 +1,367 @@
+/* ==========================================================================
+   Job Seeker Resume Management Page Styles — JobDekho Dashboard System
+   Extends index.css design tokens
+   ========================================================================== */
+
+.resume-page-container {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.resume-notice-banner {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fadeIn 300ms ease;
+}
+
+/* Header Card */
+.resume-header-card {
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, #f8fafc 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.header-pill {
+  margin-bottom: var(--space-2);
+}
+
+.resume-title {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-1);
+}
+
+.resume-updated-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Score Circle & Progress */
+.resume-score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+  min-width: 180px;
+}
+
+.score-circle-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.score-number {
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.score-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, #3b82f6 100%);
+  border-radius: var(--radius-full);
+  transition: width 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Preview & Actions Split Grid */
+.resume-action-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.preview-card,
+.actions-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-file-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-primary-border);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.file-icon-box {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.file-name {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-size {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.actions-btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+/* Modal Styling */
+.uploader-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.uploader-modal-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.uploader-modal-header {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.uploader-modal-header h3 {
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: var(--font-xl);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+/* Resume Information Sections Grid */
+.resume-info-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.info-section-card {
+  height: 100%;
+}
+
+.section-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-base);
+  font-weight: 700;
+}
+
+.personal-info-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.info-row-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+}
+
+.info-row-item .label {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.info-row-item .val {
+  font-size: var(--font-sm);
+  color: var(--color-text-heading);
+}
+
+.skills-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-pill-badge {
+  font-size: var(--font-xs);
+  padding: 0.35rem 0.75rem;
+}
+
+.timeline-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timeline-item {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-primary-border);
+}
+
+.timeline-title {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.timeline-sub {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.timeline-grade {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.timeline-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-body);
+  line-height: 1.5;
+  margin-top: var(--space-2);
+}
+
+.project-tech-badge {
+  display: inline-block;
+  font-size: var(--font-xs);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Resume Analyzer CTA Banner */
+.resume-analyzer-cta-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-banner-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.cta-banner-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: var(--space-1);
+}
+
+.cta-banner-sub {
+  font-size: var(--font-sm);
+  color: var(--color-text-subtle);
+  max-width: 620px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .resume-action-preview-grid,
+  .resume-info-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-score-block {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .resume-analyzer-cta-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-banner-left {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .actions-btn-grid {
+    grid-template-columns: 1fr;
+  }
+}

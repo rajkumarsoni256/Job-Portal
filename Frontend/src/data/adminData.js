@@ -1,5 +1,5 @@
 /**
- * Mock Dataset for Admin Dashboard
+ * Comprehensive Mock Dataset for Admin Dashboard & Admin Management Pages
  */
 
 export const ADMIN_STATS = [
@@ -58,7 +58,7 @@ export const MONTHLY_CHARTS_DATA = [
   { month: 'Aug', jobs: 2280, applications: 28600, users: 38400 },
 ];
 
-export const ADMIN_RECENT_USERS = [
+export const ADMIN_ALL_USERS = [
   {
     id: 'usr-1',
     name: 'Priya Sharma',
@@ -114,24 +114,54 @@ export const ADMIN_RECENT_USERS = [
     avatarInitial: 'AC',
     avatarBg: '#dc2626',
   },
+  {
+    id: 'usr-6',
+    name: 'Neha Kapoor',
+    email: 'neha.k@flipkart.com',
+    role: 'Recruiter',
+    joined: '20 Aug 2026',
+    status: 'Active',
+    statusVariant: 'success',
+    avatarInitial: 'NK',
+    avatarBg: '#d97706',
+  },
+  {
+    id: 'usr-7',
+    name: 'Vikram Mehta',
+    email: 'vikram.m@example.com',
+    role: 'Job Seeker',
+    joined: '15 Aug 2026',
+    status: 'Active',
+    statusVariant: 'success',
+    avatarInitial: 'VM',
+    avatarBg: '#059669',
+  },
 ];
 
-export const ADMIN_RECENT_JOBS = [
+export const ADMIN_RECENT_USERS = ADMIN_ALL_USERS.slice(0, 5);
+
+export const ADMIN_ALL_JOBS = [
   {
     id: 'job-101',
     title: 'Senior Frontend Developer',
     company: 'Google',
+    recruiter: 'Sarah Jenkins',
     location: 'Bengaluru, India',
+    jobType: 'Full-time',
     posted: '08 Sep 2026',
+    applicants: 42,
     status: 'Active',
     statusVariant: 'success',
   },
   {
     id: 'job-102',
-    title: 'AI / ML Engineer',
+    title: 'AI / ML Research Engineer',
     company: 'Microsoft',
+    recruiter: 'David Miller',
     location: 'Redmond, WA',
+    jobType: 'Full-time',
     posted: '07 Sep 2026',
+    applicants: 89,
     status: 'Active',
     statusVariant: 'success',
   },
@@ -139,17 +169,23 @@ export const ADMIN_RECENT_JOBS = [
     id: 'job-103',
     title: 'Backend Go Developer',
     company: 'Zomato',
+    recruiter: 'Deepinder Goyal',
     location: 'Gurugram, India',
+    jobType: 'Full-time',
     posted: '05 Sep 2026',
-    status: 'Active',
-    statusVariant: 'success',
+    applicants: 64,
+    status: 'Pending',
+    statusVariant: 'warning',
   },
   {
     id: 'job-104',
     title: 'UI/UX Product Designer',
     company: 'Adobe',
+    recruiter: 'Shantanu Narayen',
     location: 'Remote',
+    jobType: 'Remote',
     posted: '02 Sep 2026',
+    applicants: 112,
     status: 'Closed',
     statusVariant: 'info',
   },
@@ -157,14 +193,137 @@ export const ADMIN_RECENT_JOBS = [
     id: 'job-105',
     title: 'Unverified Cryptomining Admin',
     company: 'ScamCorp',
+    recruiter: 'Unknown Admin',
     location: 'Unknown',
+    jobType: 'Contract',
     posted: '31 Aug 2026',
+    applicants: 3,
     status: 'Flagged',
     statusVariant: 'danger',
   },
+  {
+    id: 'job-106',
+    title: 'Full Stack Node.js Lead',
+    company: 'Flipkart',
+    recruiter: 'Neha Kapoor',
+    location: 'Bengaluru, India',
+    jobType: 'Full-time',
+    posted: '25 Aug 2026',
+    applicants: 56,
+    status: 'Active',
+    statusVariant: 'success',
+  },
 ];
 
-export const ADMIN_RECENT_REPORTS = [
+export const ADMIN_RECENT_JOBS = ADMIN_ALL_JOBS.slice(0, 5);
+
+export const ADMIN_ALL_COMPANIES = [
+  {
+    id: 'comp-1',
+    name: 'Google',
+    industry: 'Technology & Cloud',
+    location: 'Mountain View, CA & India',
+    jobsPosted: 48,
+    verificationStatus: 'Verified',
+    statusVariant: 'success',
+    joinedDate: '12 Jan 2025',
+    logoBg: '#ea4335',
+    initials: 'GO',
+  },
+  {
+    id: 'comp-2',
+    name: 'Microsoft',
+    industry: 'Software & AI',
+    location: 'Redmond, WA & Bengaluru',
+    jobsPosted: 62,
+    verificationStatus: 'Verified',
+    statusVariant: 'success',
+    joinedDate: '04 Feb 2025',
+    logoBg: '#00a4ef',
+    initials: 'MS',
+  },
+  {
+    id: 'comp-3',
+    name: 'Zomato',
+    industry: 'FoodTech & E-commerce',
+    location: 'Gurugram, India',
+    jobsPosted: 19,
+    verificationStatus: 'Pending',
+    statusVariant: 'warning',
+    joinedDate: '18 Jun 2026',
+    logoBg: '#cb202d',
+    initials: 'ZO',
+  },
+  {
+    id: 'comp-4',
+    name: 'Adobe Systems',
+    industry: 'Creative Software',
+    location: 'San Jose, CA',
+    jobsPosted: 27,
+    verificationStatus: 'Verified',
+    statusVariant: 'success',
+    joinedDate: '01 Mar 2025',
+    logoBg: '#ff0000',
+    initials: 'AD',
+  },
+  {
+    id: 'comp-5',
+    name: 'ScamCorp Ltd',
+    industry: 'Financial Services',
+    location: 'Offshore',
+    jobsPosted: 2,
+    verificationStatus: 'Suspended',
+    statusVariant: 'danger',
+    joinedDate: '29 Aug 2026',
+    logoBg: '#334155',
+    initials: 'SC',
+  },
+];
+
+export const ADMIN_ALL_APPLICATIONS = [
+  {
+    id: 'app-901',
+    applicantName: 'Rahul Sharma',
+    appliedJob: 'Senior Frontend Developer',
+    company: 'Google',
+    appliedDate: '08 Sep 2026',
+    status: 'Shortlisted',
+    statusVariant: 'success',
+    matchScore: '94%',
+  },
+  {
+    id: 'app-902',
+    applicantName: 'Ananya Verma',
+    appliedJob: 'AI / ML Research Engineer',
+    company: 'Microsoft',
+    appliedDate: '07 Sep 2026',
+    status: 'Under Review',
+    statusVariant: 'info',
+    matchScore: '88%',
+  },
+  {
+    id: 'app-903',
+    applicantName: 'Karan Patel',
+    appliedJob: 'Backend Go Developer',
+    company: 'Zomato',
+    appliedDate: '06 Sep 2026',
+    status: 'Hired',
+    statusVariant: 'success',
+    matchScore: '96%',
+  },
+  {
+    id: 'app-904',
+    applicantName: 'Alex Chen',
+    appliedJob: 'UI/UX Product Designer',
+    company: 'Adobe',
+    appliedDate: '01 Sep 2026',
+    status: 'Rejected',
+    statusVariant: 'danger',
+    matchScore: '52%',
+  },
+];
+
+export const ADMIN_ALL_REPORTS = [
   {
     id: 'REP-1092',
     subject: 'Suspicious Spam Job Listing',
@@ -206,3 +365,5 @@ export const ADMIN_RECENT_REPORTS = [
     statusVariant: 'warning',
   },
 ];
+
+export const ADMIN_RECENT_REPORTS = ADMIN_ALL_REPORTS;

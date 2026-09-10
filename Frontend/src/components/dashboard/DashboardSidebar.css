@@ -74,6 +74,29 @@
   color: var(--color-error, #dc2626);
 }
 
+/* Collapsed Desktop Sidebar (Narrow Mode) */
+.dashboard-sidebar.collapsed {
+  width: 72px;
+}
+
+.dashboard-sidebar.collapsed .sidebar-nav-group {
+  padding: 0 0.5rem;
+}
+
+.dashboard-sidebar.collapsed .sidebar-group-label {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-nav-item span {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-nav-item {
+  justify-content: center;
+  padding: 0.75rem 0;
+  gap: 0;
+}
+
 /* Mobile Sidebar Drawer */
 @media (max-width: 900px) {
   .dashboard-sidebar {

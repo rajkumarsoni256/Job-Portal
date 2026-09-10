@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Seeker Settings Page Styles — JobDekho Dashboard System
+   Extends index.css design tokens
+   ========================================================================== */
+
+.settings-page-container {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.settings-success-banner {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-border);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  animation: fadeIn 300ms ease;
+}
+
+.settings-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.settings-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xs);
+}
+
+.section-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+
+.settings-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.custom-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  color: var(--color-text-main);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.custom-select:focus {
+  border-color: var(--color-primary);
+}
+
+/* Toggles Grid */
+.toggles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.toggle-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.toggle-title {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 2px;
+}
+
+.toggle-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.toggle-switch {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.settings-save-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Danger Zone Card */
+.danger-zone-card {
+  border-color: var(--color-error-border);
+  background: #fff5f5;
+}
+
+.danger-zone-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.danger-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.danger-action-title {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.danger-action-desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.modal-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-body {
+  padding: var(--space-6);
+  font-size: var(--font-sm);
+  color: var(--color-text-body);
+  line-height: 1.5;
+}
+
+.modal-footer {
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-row-2,
+  .form-row-3,
+  .toggles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .danger-action-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .danger-action-row button {
+    width: 100%;
+  }
+}
