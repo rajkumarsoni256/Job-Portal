@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { MapPin, DollarSign, Clock, Bookmark, ChevronRight } from 'lucide-react';
+import { AuthContext } from '../../context/AuthContext';
 import './JobCard.css';
 
 /**
@@ -8,6 +9,16 @@ import './JobCard.css';
  * Displays job details, badges, skills, save toggle, and details view action
  */
 function JobCard({ job }) {
+  const location = useLocation();
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user;
+
+  const isSeekerRole = Boolean(
+    user && (user.role?.toLowerCase() === 'seeker' || user.role?.toUpperCase() === 'JOB_SEEKER')
+  );
+  const isSeekerPath = location.pathname.startsWith('/seeker');
+  const isSeeker = isSeekerPath || isSeekerRole;
+
   const [isSaved, setIsSaved] = useState(false);
 
   const toggleSave = (e) => {
@@ -20,7 +31,7 @@ function JobCard({ job }) {
     id = '1',
     title = 'Software Engineer',
     company = 'TechCorp',
-    location = 'Remote / New York',
+    location: jobLocation = 'Remote / New York',
     workMode = 'Remote',
     type = 'Full-time',
     experience = '1-2 years',
@@ -31,6 +42,8 @@ function JobCard({ job }) {
     companyInitial = 'T',
   } = job || {};
 
+  const detailsPath = isSeeker ? `/seeker/jobs/${id}` : `/jobs/${id}`;
+
   return (
     <div className="job-card">
       <div className="job-card-top">
@@ -39,7 +52,7 @@ function JobCard({ job }) {
             {companyInitial}
           </div>
           <div className="job-card-main-info">
-            <Link to={`/jobs/${id}`} className="job-card-title">
+            <Link to={detailsPath} className="job-card-title">
               {title}
             </Link>
             <span className="job-card-company">{company}</span>
@@ -59,7 +72,7 @@ function JobCard({ job }) {
 
       <div className="job-card-meta">
         <span className="meta-pill">
-          <MapPin size={14} /> {location}
+          <MapPin size={14} /> {jobLocation}
         </span>
         <span className="meta-pill">
           <DollarSign size={14} /> {salary}
@@ -86,7 +99,7 @@ function JobCard({ job }) {
         <span className="posted-date">
           <Clock size={13} /> {postedDate}
         </span>
-        <Link to={`/jobs/${id}`} className="btn-nav btn-outline" style={{ padding: '0.35rem 0.85rem' }}>
+        <Link to={detailsPath} className="btn-nav btn-outline" style={{ padding: '0.35rem 0.85rem' }}>
           View Job <ChevronRight size={14} style={{ marginLeft: 2 }} />
         </Link>
       </div>

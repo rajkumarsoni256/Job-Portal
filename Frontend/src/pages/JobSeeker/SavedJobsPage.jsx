@@ -10,8 +10,6 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { Container, Button, Card, Input, Badge, EmptyState } from '../../components/common';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import JobCard from '../../components/jobs/JobCard';
 import './SavedJobsPage.css';
 
@@ -113,14 +111,8 @@ function SavedJobsPage() {
     });
 
   return (
-    <div className="dashboard-layout">
-      {/* Sidebar Navigation */}
-      <DashboardSidebar role="seeker" />
-
-      <main className="dashboard-main-content">
-        <DashboardHeader title="Saved Jobs" subtitle="Manage your bookmarked opportunities and apply anytime" />
-
-        <Container size="xl" className="saved-jobs-container">
+    <div style={{ padding: 'var(--space-6, 1.5rem)' }}>
+      <Container size="xl" className="saved-jobs-container">
           {/* TOP TOOLBAR: SEARCH & FILTERS */}
           <div className="saved-toolbar-card">
             <div className="toolbar-top-row">
@@ -199,7 +191,7 @@ function SavedJobsPage() {
                   <Button
                     variant="primary"
                     iconLeft={<Briefcase size={18} />}
-                    onClick={() => navigate('/jobs')}
+                    onClick={() => navigate('/seeker/jobs')}
                   >
                     Explore Jobs
                   </Button>
@@ -224,7 +216,6 @@ function SavedJobsPage() {
             </div>
           )}
         </Container>
-      </main>
     </div>
   );
 }

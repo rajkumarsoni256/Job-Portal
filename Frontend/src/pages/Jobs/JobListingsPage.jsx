@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState, useMemo, useContext } from 'react';
+import { useSearchParams, useLocation, Navigate } from 'react-router-dom';
 import { Search, MapPin, X, SearchX, SlidersHorizontal } from 'lucide-react';
 import { JOBS_DATA } from '../../data/jobs';
 import JobCard from '../../components/jobs/JobCard';
 import JobFilter from '../../components/jobs/JobFilter';
+import { AuthContext } from '../../context/AuthContext';
 import './JobListingsPage.css';
 
 /**
@@ -12,6 +13,9 @@ import './JobListingsPage.css';
  */
 function JobListingsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user;
 
   // Search input state
   const urlSearch = searchParams.get('search') || '';
@@ -33,6 +37,17 @@ function JobListingsPage() {
   // Sync when URL params change
   const [prevUrlSearch, setPrevUrlSearch] = useState(urlSearch);
   const [prevUrlLocation, setPrevUrlLocation] = useState(urlLocation);
+
+  const isSeekerRole = Boolean(
+    user && (user.role?.toLowerCase() === 'seeker' || user.role?.toUpperCase() === 'JOB_SEEKER')
+  );
+  const isSeekerPath = location.pathname.startsWith('/seeker');
+
+  // If authenticated seeker lands on public /jobs path, redirect to /seeker/jobs preserving query params
+  if (isSeekerRole && !isSeekerPath) {
+    const searchString = location.search || '';
+    return <Navigate to={`/seeker/jobs${searchString}`} replace />;
+  }
 
   if (prevUrlSearch !== urlSearch) {
     setPrevUrlSearch(urlSearch);

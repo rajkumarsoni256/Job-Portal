@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -14,6 +14,7 @@ import {
   Sliders,
 } from 'lucide-react';
 import { MOCK_RESUME_ANALYSIS } from '../../data/mockAnalysis';
+import { AuthContext } from '../../context/AuthContext';
 import './ResumeResultPage.css';
 
 /**
@@ -22,6 +23,13 @@ import './ResumeResultPage.css';
  */
 function ResumeResultPage() {
   const data = MOCK_RESUME_ANALYSIS;
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user;
+
+  const isSeeker = Boolean(
+    user && (user.role?.toLowerCase() === 'seeker' || user.role?.toUpperCase() === 'JOB_SEEKER')
+  );
+  const jobsListPath = isSeeker ? '/seeker/jobs' : '/jobs';
 
   const getPriorityTagClass = (priority) => {
     switch (priority.toLowerCase()) {
@@ -68,7 +76,7 @@ function ResumeResultPage() {
             <Link to="/resume-analyzer" className="btn-nav btn-outline">
               <UploadCloud size={16} style={{ marginRight: 4 }} /> Upload New Resume
             </Link>
-            <Link to="/jobs" className="btn-nav btn-primary">
+            <Link to={jobsListPath} className="btn-nav btn-primary">
               <Briefcase size={16} style={{ marginRight: 4 }} /> View Matched Jobs
             </Link>
           </div>
@@ -273,7 +281,7 @@ function ResumeResultPage() {
                     <div className="flex flex-col items-end gap-2">
                       <span className="match-badge-pill">{job.matchPercentage}%</span>
                       <Link
-                        to={`/jobs/${job.id}`}
+                        to={isSeeker ? `/seeker/jobs/${job.id}` : `/jobs/${job.id}`}
                         className="btn-nav btn-outline"
                         style={{ fontSize: '0.7rem', padding: '0.25rem 0.6rem' }}
                       >
@@ -284,7 +292,7 @@ function ResumeResultPage() {
                 ))}
               </div>
 
-              <Link to="/jobs" className="btn-nav btn-primary full-width" style={{ marginTop: 'var(--space-4)', textAlign: 'center' }}>
+              <Link to={jobsListPath} className="btn-nav btn-primary full-width" style={{ marginTop: 'var(--space-4)', textAlign: 'center' }}>
                 Browse All Open Jobs
               </Link>
             </div>

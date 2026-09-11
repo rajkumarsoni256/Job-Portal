@@ -20,15 +20,11 @@ import {
   ExternalLink,
   ChevronRight,
 } from 'lucide-react';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import { SEEKER_PROFILE } from '../../data/seekerData';
 import './ProfilePage.css';
 import './JobSeekerDashboard.css';
 
 function ProfilePage() {
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-
   // Profile State (initialized from SEEKER_PROFILE)
   const [profile, setProfile] = useState({ ...SEEKER_PROFILE });
 
@@ -310,26 +306,7 @@ function ProfilePage() {
   };
 
   return (
-    <div className="seeker-dashboard-layout">
-      {/* Integrated Sidebar */}
-      <DashboardSidebar
-        role="seeker"
-        isMobileOpen={isMobileSidebarOpen}
-        onCloseMobile={() => setIsMobileSidebarOpen(false)}
-      />
-
-      <div className="seeker-main-wrapper">
-        {/* Integrated Header */}
-        <DashboardHeader
-          title="My Profile"
-          userName={profile.name}
-          userRole="Job Seeker"
-          userInitial={profile.avatarInitial}
-          isMobileSidebarOpen={isMobileSidebarOpen}
-          onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
-        />
-
-        <main className="profile-page-content">
+    <div className="profile-page-content">
           {/* Toast Alert */}
           {toastMessage && (
             <div
@@ -845,8 +822,6 @@ function ProfilePage() {
               </div>
             </div>
           </div>
-        </main>
-      </div>
 
       {/* EDIT HEADER MODAL */}
       {isEditHeaderOpen && (

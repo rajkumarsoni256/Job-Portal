@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   ArrowLeft,
   MapPin,
@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { JOBS_DATA } from '../../data/jobs';
 import JobCard from '../../components/jobs/JobCard';
+import { AuthContext } from '../../context/AuthContext';
 import './JobDetailsPage.css';
 
 /**
@@ -26,11 +27,28 @@ import './JobDetailsPage.css';
  */
 function JobDetailsPage() {
   const { id } = useParams();
-  const job = JOBS_DATA.find((j) => j.id === id) || JOBS_DATA[0];
+  const location = useLocation();
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user;
 
   const [isSaved, setIsSaved] = useState(false);
   const [isApplied, setIsApplied] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isSeekerRole = Boolean(
+    user && (user.role?.toLowerCase() === 'seeker' || user.role?.toUpperCase() === 'JOB_SEEKER')
+  );
+  const isSeekerPath = location.pathname.startsWith('/seeker');
+
+  // If authenticated seeker lands on public /jobs/:id path, redirect to /seeker/jobs/:id
+  if (isSeekerRole && !isSeekerPath) {
+    return <Navigate to={`/seeker/jobs/${id}`} replace />;
+  }
+
+  const isSeeker = isSeekerPath || isSeekerRole;
+  const backLink = isSeeker ? '/seeker/jobs' : '/jobs';
+
+  const job = JOBS_DATA.find((j) => j.id === id) || JOBS_DATA[0];
 
   const toggleSave = () => {
     setIsSaved((prev) => !prev);
@@ -60,7 +78,7 @@ function JobDetailsPage() {
     <div className="job-details-page">
       <div className="details-container">
         {/* Back Link */}
-        <Link to="/jobs" className="back-link">
+        <Link to={backLink} className="back-link">
           <ArrowLeft size={16} /> Back to All Jobs
         </Link>
 

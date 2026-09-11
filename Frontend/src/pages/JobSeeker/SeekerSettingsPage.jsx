@@ -18,8 +18,6 @@ import {
   X,
 } from 'lucide-react';
 import { Container, Button, Card, Input, Badge } from '../../components/common';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import { AuthContext } from '../../context/AuthContext';
 import './SeekerSettingsPage.css';
 
@@ -83,14 +81,8 @@ function SeekerSettingsPage() {
   };
 
   return (
-    <div className="dashboard-layout">
-      {/* Dashboard Sidebar */}
-      <DashboardSidebar role="seeker" />
-
-      <main className="dashboard-main-content">
-        <DashboardHeader title="Settings" subtitle="Manage your account, notifications, privacy, and job preferences" />
-
-        <Container size="xl" className="settings-page-container">
+    <div style={{ padding: 'var(--space-6, 1.5rem)' }}>
+      <Container size="xl" className="settings-page-container">
           {saveBanner && (
             <div className="settings-success-banner">
               <CheckCircle2 size={18} className="text-success" />
@@ -374,7 +366,6 @@ function SeekerSettingsPage() {
             </div>
           )}
         </Container>
-      </main>
     </div>
   );
 }

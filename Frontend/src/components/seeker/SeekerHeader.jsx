@@ -1,15 +1,16 @@
 import React from 'react';
-import { Menu, X, Bell } from 'lucide-react';
-import './DashboardHeader.css';
+import { Menu, Bell } from 'lucide-react';
+import '../dashboard/DashboardHeader.css';
 
 /**
- * Reusable DashboardHeader Component
+ * SeekerHeader Component
+ * Top header bar for authenticated Job Seeker pages with title, toggle menu button, notifications & profile badge
  */
-function DashboardHeader({
-  title = 'Dashboard',
-  userName = 'Raj Kumar',
+function SeekerHeader({
+  title = 'Dashboard Overview',
+  userName = 'Rahul Sharma',
   userRole = 'Job Seeker',
-  userInitial = 'RK',
+  userInitial = 'RS',
   isMobileSidebarOpen = false,
   onToggleMobileSidebar,
   onToggleCollapse,
@@ -64,4 +65,4 @@ function DashboardHeader({
   );
 }
 
-export default DashboardHeader;
+export default SeekerHeader;

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Layout Wrappers
 import PublicLayout from './components/layout/PublicLayout';
 import AuthLayout from './components/layout/AuthLayout';
+import SeekerLayout from './components/layout/SeekerLayout';
 
 // Common / Protection
 import ProtectedRoute from './components/common/ProtectedRoute';
+import { AuthContext } from './context/AuthContext';
 
 // Page Components — Public & Auth
-import HomePage from './pages/Home/HomePage';
 import JobListingsPage from './pages/Jobs/JobListingsPage';
 import JobDetailsPage from './pages/Jobs/JobDetailsPage';
 import CompaniesPage from './pages/Companies/CompaniesPage';
@@ -59,6 +60,28 @@ import AdminSettingsPage from './pages/Admin/AdminSettingsPage';
 import { AuthProvider } from './context/AuthContext';
 
 /**
+ * RootRedirect Component
+ * Redirects unauthenticated users to /login and authenticated users to role dashboard
+ */
+function RootRedirect() {
+  const { user, isAuthenticated } = useContext(AuthContext) || {};
+  if (!isAuthenticated || !user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const rawRole = (user.role || '').toUpperCase();
+  const userRole = rawRole === 'SEEKER' ? 'JOB_SEEKER' : rawRole === 'RECRUITER' ? 'JOB_RECRUITER' : rawRole;
+  const targetDashboard =
+    userRole === 'ADMIN'
+      ? '/admin/dashboard'
+      : userRole === 'JOB_RECRUITER'
+      ? '/recruiter/dashboard'
+      : '/seeker/dashboard';
+
+  return <Navigate to={targetDashboard} replace />;
+}
+
+/**
  * Main Application Component
  * Configures layout-based route groups for Public, Auth, and Dashboard routes
  */
@@ -67,9 +90,11 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
+          {/* --- ROOT ROUTE REDIRECT --- */}
+          <Route path="/" element={<RootRedirect />} />
+
           {/* --- PUBLIC WEBSITE ROUTES (with Public Navbar & Footer) --- */}
           <Route element={<PublicLayout />}>
-            <Route path="/" element={<Navigate to="/login" replace />} />
             <Route path="/jobs" element={<JobListingsPage />} />
             <Route path="/jobs/:id" element={<JobDetailsPage />} />
             <Route path="/companies" element={<CompaniesPage />} />
@@ -84,7 +109,6 @@ function App() {
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/resume-analyzer" element={<ResumeAnalyzerPage />} />
             <Route path="/resume-analyzer/result" element={<ResumeResultPage />} />
-            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           {/* --- AUTHENTICATION ROUTES (NO Public Navbar, NO Public Footer) --- */}
@@ -94,55 +118,21 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           </Route>
 
-          {/* --- JOB SEEKER ROUTES (NO Public Navbar, NO Public Footer) --- */}
-          <Route
-            path="/seeker/dashboard"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <JobSeekerDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/seeker/profile"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <ProfilePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/seeker/resume"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <ResumeManagementPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/seeker/applications"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <ApplicationsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/seeker/saved"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <SavedJobsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/seeker/settings"
-            element={
-              <ProtectedRoute allowedRoles={['seeker']}>
-                <SeekerSettingsPage />
-              </ProtectedRoute>
-            }
-          />
+          {/* --- JOB SEEKER ROUTES (PROTECTED & UNIFIED SEEKER LAYOUT) --- */}
+          <Route element={<ProtectedRoute allowedRoles={['seeker']} />}>
+            <Route element={<SeekerLayout />}>
+              <Route path="/seeker/dashboard" element={<JobSeekerDashboard />} />
+              <Route path="/seeker/profile" element={<ProfilePage />} />
+              <Route path="/seeker/jobs" element={<JobListingsPage />} />
+              <Route path="/seeker/jobs/:id" element={<JobDetailsPage />} />
+              <Route path="/seeker/saved-jobs" element={<SavedJobsPage />} />
+              <Route path="/seeker/saved" element={<Navigate to="/seeker/saved-jobs" replace />} />
+              <Route path="/seeker/applications" element={<ApplicationsPage />} />
+              <Route path="/seeker/resume" element={<ResumeManagementPage />} />
+              <Route path="/seeker/settings" element={<SeekerSettingsPage />} />
+              <Route path="/seeker/*" element={<Navigate to="/seeker/dashboard" replace />} />
+            </Route>
+          </Route>
 
           {/* --- RECRUITER ROUTES (NO Public Navbar, NO Public Footer) --- */}
           <Route
@@ -260,6 +250,11 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* CATCH ALL WILDCARD FOR UNKNOWN PUBLIC ROUTES */}
+          <Route path="*" element={<PublicLayout />}>
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </Router>
     </AuthProvider>

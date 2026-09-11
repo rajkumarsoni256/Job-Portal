@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 /**
@@ -35,7 +35,7 @@ function ProtectedRoute({ allowedRoles = [], children }) {
     return <Navigate to={roleRedirect} replace />;
   }
 
-  return children;
+  return children ? children : <Outlet />;
 }
 
 export default ProtectedRoute;

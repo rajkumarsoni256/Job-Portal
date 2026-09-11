@@ -21,8 +21,6 @@ import {
   Calendar,
 } from 'lucide-react';
 import { Container, Button, Card, Badge } from '../../components/common';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import ResumeUploader from '../../components/resume/ResumeUploader';
 import './ResumeManagementPage.css';
 
@@ -127,14 +125,8 @@ function ResumeManagementPage() {
   };
 
   return (
-    <div className="dashboard-layout">
-      {/* Sidebar Shell */}
-      <DashboardSidebar role="seeker" />
-
-      <main className="dashboard-main-content">
-        <DashboardHeader title="My Resume" subtitle="Manage, preview, and optimize your professional resume" />
-
-        <Container size="xl" className="resume-page-container">
+    <div style={{ padding: 'var(--space-6, 1.5rem)' }}>
+      <Container size="xl" className="resume-page-container">
           {actionNotice && (
             <div className="resume-notice-banner">
               <CheckCircle2 size={18} className="text-success" />
@@ -405,7 +397,6 @@ function ResumeManagementPage() {
             </Button>
           </div>
         </Container>
-      </main>
     </div>
   );
 }

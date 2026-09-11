@@ -6,8 +6,6 @@ import {
   Inbox,
   ExternalLink,
 } from 'lucide-react';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import { SEEKER_PROFILE, RECENT_APPLICATIONS } from '../../data/seekerData';
 import './ApplicationsPage.css';
 import './JobSeekerDashboard.css';
@@ -17,7 +15,6 @@ import './JobSeekerDashboard.css';
  * My Applications dashboard page with tabs, filter by status, detail modal, and application timeline
  */
 function ApplicationsPage() {
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
   const [selectedApp, setSelectedApp] = useState(null);
 
@@ -53,26 +50,7 @@ function ApplicationsPage() {
   };
 
   return (
-    <div className="seeker-dashboard-layout">
-      {/* Integrated Sidebar Navigation */}
-      <DashboardSidebar
-        isMobileOpen={isMobileSidebarOpen}
-        onCloseMobile={() => setIsMobileSidebarOpen(false)}
-      />
-
-      <div className="seeker-main-wrapper">
-        {/* Integrated Header */}
-        <DashboardHeader
-          title="My Applications"
-          userName={SEEKER_PROFILE.name}
-          userRole={SEEKER_PROFILE.title}
-          userInitial={SEEKER_PROFILE.avatarInitial}
-          isMobileSidebarOpen={isMobileSidebarOpen}
-          onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
-        />
-
-        {/* Page Content */}
-        <main className="applications-page-content">
+    <div className="applications-page-content">
           {/* Heading */}
           <div className="page-title-group">
             <h2 className="section-title">My Applications</h2>
@@ -186,14 +164,12 @@ function ApplicationsPage() {
                 <p className="empty-desc">
                   There are no job applications listed under <strong>"{activeTab}"</strong> status.
                 </p>
-                <Link to="/jobs" className="btn-nav btn-primary">
+                <Link to="/seeker/jobs" className="btn-nav btn-primary">
                   Browse Open Jobs
                 </Link>
               </div>
             )}
           </div>
-        </main>
-      </div>
 
       {/* DETAILED APPLICATION MODAL */}
       {selectedApp && (
@@ -312,7 +288,7 @@ function ApplicationsPage() {
             {/* Modal Actions */}
             <div className="flex items-center justify-between" style={{ marginTop: 'var(--space-2)' }}>
               <Link
-                to={`/jobs/${selectedApp.jobId}`}
+                to={`/seeker/jobs/${selectedApp.jobId}`}
                 className="btn-nav btn-outline"
                 style={{ fontSize: 'var(--font-xs)' }}
               >

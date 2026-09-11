@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Send,
@@ -10,8 +10,6 @@ import {
   AlertCircle,
   FileCheck2,
 } from 'lucide-react';
-import DashboardSidebar from '../../components/dashboard/DashboardSidebar';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
 import {
   SEEKER_PROFILE,
   RECOMMENDED_JOBS_SEEKER,
@@ -24,12 +22,6 @@ import './JobSeekerDashboard.css';
  * Complete Job Seeker Dashboard with stats, resume score card, recommended jobs, and applications table
  */
 function JobSeekerDashboard() {
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-
-  const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen((prev) => !prev);
-  };
-
   const getStatusBadgeClass = (variant) => {
     switch (variant) {
       case 'success':
@@ -46,26 +38,7 @@ function JobSeekerDashboard() {
   };
 
   return (
-    <div className="seeker-dashboard-layout">
-      {/* Integrated Sidebar Navigation */}
-      <DashboardSidebar
-        isMobileOpen={isMobileSidebarOpen}
-        onCloseMobile={() => setIsMobileSidebarOpen(false)}
-      />
-
-      <div className="seeker-main-wrapper">
-        {/* Integrated Header */}
-        <DashboardHeader
-          title="Dashboard Overview"
-          userName={SEEKER_PROFILE.name}
-          userRole={SEEKER_PROFILE.title}
-          userInitial={SEEKER_PROFILE.avatarInitial}
-          isMobileSidebarOpen={isMobileSidebarOpen}
-          onToggleMobileSidebar={toggleMobileSidebar}
-        />
-
-        {/* Dashboard Main Content Area */}
-        <main className="seeker-dashboard-content">
+    <div className="seeker-dashboard-content">
           {/* 1. WELCOME BANNER */}
           <div className="welcome-banner-card">
             <div>
@@ -201,7 +174,7 @@ function JobSeekerDashboard() {
                 </h3>
                 <p className="section-subtitle">Matched based on your profile & skills</p>
               </div>
-              <Link to="/jobs" className="btn-nav btn-outline" style={{ padding: '0.35rem 0.75rem' }}>
+              <Link to="/seeker/jobs" className="btn-nav btn-outline" style={{ padding: '0.35rem 0.75rem' }}>
                 View All Jobs <ArrowRight size={14} style={{ marginLeft: 4 }} />
               </Link>
             </div>
@@ -256,7 +229,7 @@ function JobSeekerDashboard() {
                   <div className="flex items-center justify-between" style={{ marginTop: '0.2rem' }}>
                     <span className="type-badge">{job.type}</span>
                     <Link
-                      to={`/jobs/${job.id}`}
+                      to={`/seeker/jobs/${job.id}`}
                       className="btn-nav btn-outline"
                       style={{ padding: '0.3rem 0.75rem', fontSize: 'var(--font-xs)' }}
                     >
@@ -324,7 +297,7 @@ function JobSeekerDashboard() {
                     </td>
                     <td style={{ textAlign: 'right' }}>
                       <Link
-                        to="/jobs/1"
+                        to={`/seeker/jobs/${app.jobId || '1'}`}
                         className="btn-nav btn-outline"
                         style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem' }}
                       >
@@ -336,8 +309,6 @@ function JobSeekerDashboard() {
               </tbody>
             </table>
           </section>
-        </main>
-      </div>
     </div>
   );
 }
