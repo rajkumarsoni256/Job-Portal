@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .filter-sidebar {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 12px);
   padding: var(--space-5, 1.25rem);

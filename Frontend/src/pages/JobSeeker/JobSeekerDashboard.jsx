@@ -48,7 +48,7 @@ function JobSeekerDashboard() {
               </p>
             </div>
 
-            <Link to="/resume-analyzer" className="btn-analyze-prominent">
+            <Link to="/seeker/resume-analyzer" className="btn-analyze-prominent">
               <Sparkles size={18} />
               <span>Analyze Resume</span>
             </Link>
@@ -155,7 +155,7 @@ function JobSeekerDashboard() {
 
               <div>
                 <Link
-                  to="/resume-analyzer"
+                  to="/seeker/resume-analyzer"
                   className="btn-nav btn-outline"
                   style={{ fontSize: 'var(--font-xs)', padding: '0.35rem 0.85rem' }}
                 >

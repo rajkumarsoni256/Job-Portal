@@ -46,7 +46,7 @@
 
 /* Upload Card Box */
 .upload-card-box {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 16px);
   padding: var(--space-8, 2rem);
@@ -176,7 +176,7 @@
 
 /* Informational Section: "What you'll get" */
 .features-info-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 16px);
   padding: var(--space-8, 2rem);
@@ -234,7 +234,7 @@
 
 /* Simulated Loading State Overlay */
 .scanning-overlay-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-primary-border, #bfdbfe);
   border-radius: var(--radius-xl, 16px);
   padding: var(--space-10, 2.5rem) var(--space-6, 1.5rem);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   User,
@@ -51,7 +51,7 @@ function SeekerSidebar({ isMobileOpen = false, onCloseMobile, isCollapsed: isCol
     { label: 'Saved Jobs', path: '/seeker/saved-jobs', icon: <Bookmark size={18} /> },
     { label: 'Applications', path: '/seeker/applications', icon: <Send size={18} /> },
     { label: 'Resume', path: '/seeker/resume', icon: <FileText size={18} /> },
-    { label: 'Resume Analyzer', path: '/resume-analyzer', icon: <Sparkles size={18} /> },
+    { label: 'Resume Analyzer', path: '/seeker/resume-analyzer', icon: <Sparkles size={18} /> },
     { label: 'Settings', path: '/seeker/settings', icon: <Settings size={18} /> },
   ];
 

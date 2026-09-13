@@ -107,8 +107,8 @@ function App() {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
-            <Route path="/resume-analyzer" element={<ResumeAnalyzerPage />} />
-            <Route path="/resume-analyzer/result" element={<ResumeResultPage />} />
+            <Route path="/resume-analyzer" element={<Navigate to="/seeker/resume-analyzer" replace />} />
+            <Route path="/resume-analyzer/result" element={<Navigate to="/seeker/resume-analyzer/result" replace />} />
           </Route>
 
           {/* --- AUTHENTICATION ROUTES (NO Public Navbar, NO Public Footer) --- */}
@@ -129,6 +129,8 @@ function App() {
               <Route path="/seeker/saved" element={<Navigate to="/seeker/saved-jobs" replace />} />
               <Route path="/seeker/applications" element={<ApplicationsPage />} />
               <Route path="/seeker/resume" element={<ResumeManagementPage />} />
+              <Route path="/seeker/resume-analyzer" element={<ResumeAnalyzerPage />} />
+              <Route path="/seeker/resume-analyzer/result" element={<ResumeResultPage />} />
               <Route path="/seeker/settings" element={<SeekerSettingsPage />} />
               <Route path="/seeker/*" element={<Navigate to="/seeker/dashboard" replace />} />
             </Route>

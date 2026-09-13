@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
   User,
@@ -45,6 +45,8 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role, isCollaps
   const isAdmin = currentRole === 'ADMIN' || location.pathname.startsWith('/admin');
   const isRecruiter = currentRole === 'JOB_RECRUITER' || currentRole === 'RECRUITER' || location.pathname.startsWith('/recruiter');
 
+  const logoTarget = isAdmin ? '/admin/dashboard' : isRecruiter ? '/recruiter/dashboard' : '/seeker/dashboard';
+
   const handleLogout = () => {
     if (authContext && authContext.logout) {
       authContext.logout();
@@ -59,7 +61,7 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role, isCollaps
     { label: 'Saved Jobs', path: '/seeker/saved-jobs', icon: <Bookmark size={18} /> },
     { label: 'Applications', path: '/seeker/applications', icon: <Send size={18} /> },
     { label: 'Resume', path: '/seeker/resume', icon: <FileText size={18} /> },
-    { label: 'Resume Analyzer', path: '/resume-analyzer', icon: <Sparkles size={18} /> },
+    { label: 'Resume Analyzer', path: '/seeker/resume-analyzer', icon: <Sparkles size={18} /> },
     { label: 'Settings', path: '/seeker/settings', icon: <Settings size={18} /> },
   ];
 
@@ -87,6 +89,17 @@ function DashboardSidebar({ isMobileOpen = false, onCloseMobile, role, isCollaps
 
   return (
     <aside className={`dashboard-sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}>
+      <div className="sidebar-logo-wrapper">
+        <Link to={logoTarget} className="sidebar-logo-link" title="JobDekho Portal" onClick={onCloseMobile}>
+          <img
+            src="/assets/jobdekho-logo.png"
+            alt="JobDekho"
+            className="sidebar-logo-full"
+          />
+          <div className="sidebar-logo-compact" aria-label="JobDekho">JD</div>
+        </Link>
+      </div>
+
       <div className="sidebar-nav-group">
         <div className="sidebar-group-label">
           {isAdmin ? 'Admin Console' : isRecruiter ? 'Recruiter Suite' : 'Navigation'}

@@ -82,7 +82,7 @@
 }
 
 .dash-stat-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 12px);
   padding: var(--space-5, 1.25rem);
@@ -125,7 +125,7 @@
 
 /* Resume Score Section Card */
 .resume-score-overview-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 12px);
   padding: var(--space-6, 1.5rem);
@@ -160,7 +160,7 @@
   width: 82px;
   height: 82px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,7 +240,7 @@
 }
 
 .rec-job-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-lg, 8px);
   padding: var(--space-5, 1.25rem);
@@ -273,7 +273,7 @@
 
 /* Applications Table */
 .applications-table-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 12px);
   padding: var(--space-6, 1.5rem);

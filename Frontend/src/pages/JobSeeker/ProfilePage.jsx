@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   User,
   MapPin,
@@ -19,6 +19,7 @@ import {
   X,
   ExternalLink,
   ChevronRight,
+  Camera,
 } from 'lucide-react';
 import { SEEKER_PROFILE } from '../../data/seekerData';
 import './ProfilePage.css';
@@ -27,6 +28,45 @@ import './JobSeekerDashboard.css';
 function ProfilePage() {
   // Profile State (initialized from SEEKER_PROFILE)
   const [profile, setProfile] = useState({ ...SEEKER_PROFILE });
+
+  // Profile photo state (persisted in localStorage)
+  const [profilePhoto, setProfilePhoto] = useState(() => {
+    return localStorage.getItem('jobdekho_profile_photo') || null;
+  });
+
+  const photoInputRef = useRef(null);
+
+  // Handle Photo Select & Validation (Frontend-Only, Max 5MB, JPG/PNG)
+  const handlePhotoSelect = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+
+    const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+    const allowedExts = ['.png', '.jpeg', '.jpg'];
+    const fileName = file.name.toLowerCase();
+    const isExtValid = allowedExts.some((ext) => fileName.endsWith(ext));
+    const isTypeValid = allowedTypes.includes(file.type);
+
+    if (!isExtValid && !isTypeValid) {
+      showToast('Please select a JPG, JPEG, or PNG image under 5 MB.');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      showToast('Please select a JPG, JPEG, or PNG image under 5 MB.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64Data = reader.result;
+      localStorage.setItem('jobdekho_profile_photo', base64Data);
+      setProfilePhoto(base64Data);
+      window.dispatchEvent(new Event('profile-photo-updated'));
+      showToast('Profile photo updated successfully!');
+    };
+    reader.readAsDataURL(file);
+  };
 
   // Toast Notification
   const [toastMessage, setToastMessage] = useState('');
@@ -336,16 +376,40 @@ function ProfilePage() {
 
           {/* 1. PROFILE HEADER CARD */}
           <div className="profile-header-card">
+            {/* Hidden File Input for Profile Photo Upload */}
+            <input
+              ref={photoInputRef}
+              type="file"
+              accept="image/png,image/jpeg,image/jpg"
+              style={{ display: 'none' }}
+              onChange={handlePhotoSelect}
+            />
+
             <div className="profile-header-left">
-              <div className="profile-avatar-large">
-                {profile.avatarInitial}
-                <div
-                  className="avatar-edit-badge"
-                  onClick={() => setIsEditHeaderOpen(true)}
-                  title="Change avatar"
-                >
-                  <Edit3 size={13} />
+              <div className="profile-avatar-large-container">
+                <div className="profile-avatar-large">
+                  {profilePhoto ? (
+                    <img src={profilePhoto} alt={profile.name} className="profile-avatar-img" />
+                  ) : (
+                    profile.avatarInitial
+                  )}
+                  <div
+                    className="avatar-edit-badge"
+                    onClick={() => photoInputRef.current && photoInputRef.current.click()}
+                    title={profilePhoto ? 'Change profile photo' : 'Upload profile photo'}
+                  >
+                    <Camera size={13} />
+                  </div>
                 </div>
+
+                <button
+                  type="button"
+                  className="btn-photo-action"
+                  onClick={() => photoInputRef.current && photoInputRef.current.click()}
+                >
+                  <Camera size={13} />
+                  <span>{profilePhoto ? 'Change Photo' : 'Upload Photo'}</span>
+                </button>
               </div>
 
               <div className="profile-header-info">

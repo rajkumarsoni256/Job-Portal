@@ -48,7 +48,7 @@ function ResumeResultPage() {
     <div className="result-page">
       <div className="result-container">
         {/* Back Navigation Link */}
-        <Link to="/resume-analyzer" className="back-link">
+        <Link to="/seeker/resume-analyzer" className="back-link">
           <ArrowLeft size={16} /> Upload Another Resume
         </Link>
 
@@ -73,7 +73,7 @@ function ResumeResultPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link to="/resume-analyzer" className="btn-nav btn-outline">
+            <Link to="/seeker/resume-analyzer" className="btn-nav btn-outline">
               <UploadCloud size={16} style={{ marginRight: 4 }} /> Upload New Resume
             </Link>
             <Link to={jobsListPath} className="btn-nav btn-primary">

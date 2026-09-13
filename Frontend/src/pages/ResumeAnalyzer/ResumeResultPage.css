@@ -17,7 +17,7 @@
 
 /* Header Top Banner */
 .result-header-card {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 16px);
   padding: var(--space-6, 1.5rem);
@@ -58,7 +58,7 @@
 }
 
 .result-card-block {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-xl, 12px);
   padding: var(--space-6, 1.5rem);
@@ -112,7 +112,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,7 +310,7 @@
 }
 
 .job-match-card-item {
-  background-color: #ffffff;
+  background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: var(--radius-lg, 8px);
   padding: var(--space-4, 1rem) var(--space-5, 1.25rem);

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   User,
@@ -16,6 +16,8 @@ import {
   Eye,
   MapPin,
   X,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { Container, Button, Card, Input, Badge } from '../../components/common';
 import { AuthContext } from '../../context/AuthContext';
@@ -31,6 +33,26 @@ function SeekerSettingsPage() {
 
   const [saveBanner, setSaveBanner] = useState('');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  // Theme state synced with localStorage and event
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('jobdekho_theme') || 'light';
+  });
+
+  useEffect(() => {
+    const handleThemeUpdate = () => {
+      setTheme(localStorage.getItem('jobdekho_theme') || 'light');
+    };
+    window.addEventListener('jobdekho-theme-updated', handleThemeUpdate);
+    return () => window.removeEventListener('jobdekho-theme-updated', handleThemeUpdate);
+  }, []);
+
+  const handleSelectTheme = (newTheme) => {
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('jobdekho_theme', newTheme);
+    window.dispatchEvent(new Event('jobdekho-theme-updated'));
+  };
 
   // Form State
   const [accountSettings, setAccountSettings] = useState({
@@ -91,6 +113,57 @@ function SeekerSettingsPage() {
           )}
 
           <form onSubmit={handleSaveAll} className="settings-form-layout">
+            {/* 0. APPEARANCE & THEME SETTINGS */}
+            <Card variant="default" padding="lg" className="settings-card">
+              <Card.Header
+                title={
+                  <span className="section-title-with-icon">
+                    <Sun size={20} className="text-warning" /> Appearance & Theme
+                  </span>
+                }
+                subtitle="Choose your preferred interface theme for the JobDekho portal"
+              />
+              <Card.Body className="settings-card-body">
+                <div className="theme-options-grid flex gap-4">
+                  <label
+                    className={`theme-option-card ${theme === 'light' ? 'selected' : ''}`}
+                    onClick={() => handleSelectTheme('light')}
+                  >
+                    <input
+                      type="radio"
+                      name="themePref"
+                      value="light"
+                      checked={theme === 'light'}
+                      onChange={() => handleSelectTheme('light')}
+                    />
+                    <Sun size={20} className="theme-option-icon text-warning" />
+                    <div>
+                      <div className="theme-option-title">Light Mode</div>
+                      <div className="theme-option-desc">Clean, classic bright interface</div>
+                    </div>
+                  </label>
+
+                  <label
+                    className={`theme-option-card ${theme === 'dark' ? 'selected' : ''}`}
+                    onClick={() => handleSelectTheme('dark')}
+                  >
+                    <input
+                      type="radio"
+                      name="themePref"
+                      value="dark"
+                      checked={theme === 'dark'}
+                      onChange={() => handleSelectTheme('dark')}
+                    />
+                    <Moon size={20} className="theme-option-icon text-primary" />
+                    <div>
+                      <div className="theme-option-title">Dark Mode</div>
+                      <div className="theme-option-desc">Sleek, low-light dark slate interface</div>
+                    </div>
+                  </label>
+                </div>
+              </Card.Body>
+            </Card>
+
             {/* 1. ACCOUNT SETTINGS */}
             <Card variant="default" padding="lg" className="settings-card">
               <Card.Header

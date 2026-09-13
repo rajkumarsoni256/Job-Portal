@@ -329,7 +329,7 @@ function JobDetailsPage() {
               </div>
 
               <Link
-                to="/resume-analyzer"
+                to="/seeker/resume-analyzer"
                 className="btn-nav btn-outline full-width"
                 style={{ marginTop: 'var(--space-2)', textAlign: 'center' }}
               >

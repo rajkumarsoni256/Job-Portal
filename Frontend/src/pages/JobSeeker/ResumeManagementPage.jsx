@@ -391,7 +391,7 @@ function ResumeManagementPage() {
               variant="primary"
               size="lg"
               iconRight={<ArrowRight size={18} />}
-              onClick={() => navigate('/resume-analyzer')}
+              onClick={() => navigate('/seeker/resume-analyzer')}
             >
               Analyze My Resume
             </Button>

@@ -130,7 +130,7 @@ function ResumeAnalyzerPage() {
 
     setTimeout(() => {
       setIsAnalyzing(false);
-      navigate('/resume-analyzer/result');
+      navigate('/seeker/resume-analyzer/result');
     }, 1800);
   };
 
